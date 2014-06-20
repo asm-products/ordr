@@ -4,4 +4,5 @@ class Job
 
   field :company
   field :postion
+  field :link
 end

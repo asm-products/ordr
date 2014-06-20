@@ -1,4 +1,4 @@
-<%= form_for(@job) do |f| %>
+<%= simple_form_for @job do |f| %>
   <% if @job.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@job.errors.count, "error") %> prohibited this job from being saved:</h2>
@@ -12,14 +12,14 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :company %><br>
-    <%= f.text_field :company %>
+    <%= f.string :company %>
   </div>
   <div class="field">
-    <%= f.label :postion %><br>
-    <%= f.text_field :postion %>
+    <%= f.string :postion %>
   </div>
+  <div class ="field">
+    <%= f.input[type=url] :link %>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.button :submit %>
   </div>
 <% end %>
