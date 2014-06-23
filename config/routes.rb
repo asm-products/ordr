@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     resources :researches
   end
 
+  root 'sessions#new'
+
   get '/login', to: 'sessions#new', as: :login
   get '/auth/:provider/callback', to: 'sessions#create'
   get 'sessions/failure', to: 'sessions#failure'

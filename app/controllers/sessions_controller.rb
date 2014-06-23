@@ -6,13 +6,14 @@ class SessionsController < ApplicationController
     auth_hash = request.env['omniauth.auth']
 
     if session[:user]
-      User.find(session[:user]).add_provider(auth_hash)
-      render text: "Welcome back #{user.name}. You are signed in using #{auth_hash["provider"]}."
+      user = User.find(session[:user]["$oid"])
+      user.add_provider(auth_hash)
+      user.save
+      redirect_to "/login", notice: "Welcome back #{user.name}. You are signed in using #{auth_hash["provider"]}."
     else
       auth  = Authentication.find_or_create(auth_hash)
-
-      session[:user] = auth.user
-      render text: "Hello, #{user.name}. You are now signed up."
+      session[:user] = auth.user_id
+      redirect_to "/login", notice: "Hello, #{auth.user.name}. You are now signed in."
     end
   end
 
@@ -20,6 +21,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    redirect_to '/login'
+    session[:user] = nil
+    redirect_to '/login', notice: "Logged out!"
   end
 end

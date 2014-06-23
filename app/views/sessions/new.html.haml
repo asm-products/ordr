@@ -1,0 +1,9 @@
+%h1
+  Sessions#new
+%p#notice
+  = notice
+
+- if current_user
+  = link_to "Sign out", "logout"
+%div#linkedin
+  = link_to "Sign in with linkedin", "/auth/linkedin"
