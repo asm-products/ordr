@@ -18,6 +18,7 @@ class SessionsController < ApplicationController
   end
 
   def failure
+    redirect_to '/login', notice: "In order to log you in, we need permission to access your account."
   end
 
   def destroy
