@@ -1,0 +1,12 @@
+<%= simple_form_for(@interview) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :type %>
+    <%= f.input :thank_you %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

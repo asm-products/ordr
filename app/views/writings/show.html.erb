@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Resume:</strong>
+  <%= @writing.resume %>
+</p>
+
+<p>
+  <strong>Cover letter:</strong>
+  <%= @writing.cover_letter %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @writing.notes %>
+</p>
+
+<%= link_to 'Edit', edit_writing_path(@writing) %> |
+<%= link_to 'Back', writings_path %>

@@ -1,0 +1,29 @@
+<h1>Listing writings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Resume</th>
+      <th>Cover letter</th>
+      <th>Notes</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @writings.each do |writing| %>
+      <tr>
+        <td><%= writing.resume %></td>
+        <td><%= writing.cover_letter %></td>
+        <td><%= writing.notes %></td>
+        <td><%= link_to 'Show', writing %></td>
+        <td><%= link_to 'Edit', edit_writing_path(writing) %></td>
+        <td><%= link_to 'Destroy', writing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Writing', new_writing_path %>
