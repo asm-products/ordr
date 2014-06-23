@@ -1,0 +1,9 @@
+= simple_form_for(@research) do |f|
+  = f.error_notification
+  .form-inputs
+    = f.input :values
+    = f.input :salary
+    = f.input :location
+    = f.input :notes
+  .form-actions
+    = f.button :submit

@@ -1,0 +1,13 @@
+%p#notice= notice
+%p
+  %strong Company:
+  = @job.company
+%p
+  %strong Postion:
+  = @job.postion
+%p
+  %strong Link to Post:
+  = @job.link
+= link_to 'Edit', edit_job_path(@job)
+|
+\#{link_to 'Back', jobs_path}

@@ -1,0 +1,19 @@
+%h1 Listing writings
+%table
+  %thead
+    %tr
+      %th Resume
+      %th Cover letter
+      %th Notes
+      %th{:colspan => "3"}
+  %tbody
+    - @writings.each do |writing|
+      %tr
+        %td= writing.resume
+        %td= writing.cover_letter
+        %td= writing.notes
+        %td= link_to 'Show', writing
+        %td= link_to 'Edit', edit_writing_path(writing)
+        %td= link_to 'Destroy', writing, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Writing', new_writing_path

@@ -1,0 +1,8 @@
+= simple_form_for(@writing) do |f|
+  = f.error_notification
+  .form-inputs
+    = f.input :resume
+    = f.input :cover_letter
+    = f.input :notes
+  .form-actions
+    = f.button :submit

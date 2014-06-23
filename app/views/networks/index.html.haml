@@ -1,0 +1,17 @@
+%h1 Listing networks
+%table
+  %thead
+    %tr
+      %th Contact
+      %th Notes
+      %th{:colspan => "3"}
+  %tbody
+    - @networks.each do |network|
+      %tr
+        %td= network.contact
+        %td= network.notes
+        %td= link_to 'Show', network
+        %td= link_to 'Edit', edit_network_path(network)
+        %td= link_to 'Destroy', network, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Network', new_network_path
