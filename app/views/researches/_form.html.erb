@@ -1,0 +1,14 @@
+<%= simple_form_for(@research) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :values %>
+    <%= f.input :salary %>
+    <%= f.input :location %>
+    <%= f.input :notes %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
