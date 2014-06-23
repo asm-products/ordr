@@ -1,14 +1,13 @@
 Rails.application.routes.draw do
+  resources :notes
+
+  resources :contacts
+
   resources :jobs do
-
     resources :interviews
-
     resources :applies
-
     resources :writings
-
     resources :networks
-
     resources :researches
   end
 

@@ -7,4 +7,6 @@ class Interview
   field :thank_you, type: Mongoid::Boolean
 
   embedded_in :job
+  has_many :contacts, as: :contactable
+  has_many :notes, as: :notable
 end

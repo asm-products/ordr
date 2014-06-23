@@ -6,7 +6,7 @@ class Research
   field :values
   field :salary
   field :location
-  field :notes
 
-  embedded_in :job
+  embedded_in :job, inverse_of: :research
+  has_many :notes, as: :notable
 end

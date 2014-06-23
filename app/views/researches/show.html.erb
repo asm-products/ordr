@@ -20,5 +20,9 @@
   <%= @research.notes %>
 </p>
 
+<p>
+  <%= render 'notes/form' %>
+</p>
+
 <%= link_to 'Edit', edit_research_path(@research) %> |
 <%= link_to 'Back', researches_path %>

@@ -5,7 +5,8 @@ class Writing
 
   field :resume, type: Mongoid::Boolean
   field :cover_letter, type: Mongoid::Boolean
-  field :notes
 
-  embedded_in :job
+
+  embedded_in :job, inverse_of: :writing
+  has_many :notes, as: :notable
 end

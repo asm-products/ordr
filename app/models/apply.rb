@@ -7,4 +7,6 @@ class Apply
   field :notes
 
   embedded_in :job
+  has_many :contacts, as: :contactable
+  has_many :notes, as: :notable
 end

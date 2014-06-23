@@ -10,6 +10,10 @@ class InterviewsController < ApplicationController
   # GET /interviews/1
   # GET /interviews/1.json
   def show
+    @contactable = @interview
+    @contact = @interview.contacts.build
+    @notable = @interview
+    @note = @interview.notes.build
   end
 
   # GET /interviews/new
@@ -69,6 +73,6 @@ class InterviewsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def interview_params
-      params.require(:interview).permit(:type, :thank_you)
+      params.require(:interview).permit(:type, :thank_you, :contact, :note)
     end
 end

@@ -10,6 +10,8 @@ class ResearchesController < ApplicationController
   # GET /researches/1
   # GET /researches/1.json
   def show
+    @notable = @research
+    @note = @research.notes.build
   end
 
   # GET /researches/new
@@ -61,6 +63,6 @@ class ResearchesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def research_params
-      params.require(:research).permit(:values, :salary, :location, :notes)
+      params.require(:research).permit(:values, :salary, :location, :note)
     end
 end

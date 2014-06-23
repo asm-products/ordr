@@ -15,5 +15,9 @@
   <%= @writing.notes %>
 </p>
 
+<p>
+  <%= render 'notes/form' %>
+</p>
+
 <%= link_to 'Edit', edit_writing_path(@writing) %> |
 <%= link_to 'Back', writings_path %>

@@ -10,6 +10,10 @@ class NetworksController < ApplicationController
   # GET /networks/1
   # GET /networks/1.json
   def show
+    @contactable = @network
+    @contact = @network.contacts.build
+    @notable = @network
+    @note = @network.notes.build
   end
 
   # GET /networks/new
@@ -69,6 +73,6 @@ class NetworksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def network_params
-      params.require(:network).permit(:contact, :notes)
+      params.require(:network).permit(:contact, :note)
     end
 end
