@@ -1,5 +1,6 @@
 class InterviewsController < ApplicationController
   before_action :set_interview, only: [:show, :edit, :update, :destroy]
+  before_action :set_job
 
   # GET /interviews
   # GET /interviews.json
@@ -14,7 +15,7 @@ class InterviewsController < ApplicationController
 
   # GET /interviews/new
   def new
-    @interview = Interview.new
+    @interview = Interview.new({job_id: @job.id })
   end
 
   # GET /interviews/1/edit
@@ -24,12 +25,12 @@ class InterviewsController < ApplicationController
   # POST /interviews
   # POST /interviews.json
   def create
-    @interview = Interview.new(interview_params)
+    @interview = @job.create_interview(interview_params)
 
     respond_to do |format|
       if @interview.save
-        format.html { redirect_to @interview, notice: 'Interview was successfully created.' }
-        format.json { render :show, status: :created, location: @interview }
+        format.html { redirect_to @job, notice: 'Interview was successfully created.' }
+        format.json { render :show, status: :created, location: @job }
       else
         format.html { render :new }
         format.json { render json: @interview.errors, status: :unprocessable_entity }
@@ -65,6 +66,10 @@ class InterviewsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_interview
       @interview = Interview.find(params[:id])
+    end
+
+    def set_job
+      @job = Job.find(params[:job_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
