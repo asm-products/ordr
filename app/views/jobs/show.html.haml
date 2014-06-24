@@ -9,7 +9,25 @@
   %strong Link to Post:
   =@job.link
 
-=link_to 'Edit', edit_job_path(@job)
+%article
+  =link_to 'Job Details', edit_job_path(@job)
+    %section
+  = link_to "Research", new_job_research_path(@job)
+    %section
+  = link_to "Networking", new_job_network_path(@job)
+    %section
+  = link_to "Job Documents", new_job_writing_path(@job)
+    %section
+  = link_to "Apply", new_job_apply_path(@job)
+    %section
+  = link_to "Interview", new_job_interview_path(@job)
+    %section
+
+
+
+
+
+
 |
 \#{link_to 'Back', jobs_path}
 

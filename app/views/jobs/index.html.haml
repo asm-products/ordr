@@ -1,19 +1,16 @@
-%h1 Listing Jobs
-%table
-  %thead
-    %tr
-      %th Company
-      %th Postion
-      %th Link to Url
-      %th{:colspan => "3"}
-  %tbody
-    - @jobs.each do |job|
-      %tr
-        %td= job.company
-        %td= job.postion
-        %td= job.link
-        %td= link_to 'Show', job
-        %td= link_to 'Edit', edit_job_path(job)
-        %td= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' }
-%br/
+%header
+  %h1 Job Details
+  %div {{#}}
+
+- @jobs.each do |job|
+  = link_to job do
+    %section
+      %h2= job.postion
+      %h3= job.company
+      %div
+        %p {{#}}% Completed
+      // %p= link_to 'Show', job
+      // %p= link_to 'Edit', edit_job_path(job)
+      // %p= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' }
+
 = link_to 'New Job', new_job_path
