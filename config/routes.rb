@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :contacts
 
   resources :jobs do
+    resources :contacts
     resources :interviews
     resources :applies
     resources :writings

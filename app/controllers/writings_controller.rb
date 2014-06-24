@@ -1,5 +1,6 @@
 class WritingsController < ApplicationController
   before_action :set_writing, only: [:show, :edit, :update, :destroy]
+  before_action :set_job
 
   # GET /writings
   # GET /writings.json
@@ -16,7 +17,7 @@ class WritingsController < ApplicationController
 
   # GET /writings/new
   def new
-    @writing = Writing.new
+    @writing = Writing.new({job_id: @job.id})
   end
 
   # GET /writings/1/edit
@@ -26,12 +27,12 @@ class WritingsController < ApplicationController
   # POST /writings
   # POST /writings.json
   def create
-    @writing = Writing.new(writing_params)
+    @writing = @job.create_writing(writing_params)
 
     respond_to do |format|
       if @writing.save
-        format.html { redirect_to @writing, notice: 'Writing was successfully created.' }
-        format.json { render :show, status: :created, location: @writing }
+        format.html { redirect_to @job, notice: 'Writing was successfully created.' }
+        format.json { render :show, status: :created, location: @job }
       else
         format.html { render :new }
         format.json { render json: @writing.errors, status: :unprocessable_entity }
@@ -67,6 +68,10 @@ class WritingsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_writing
       @writing = Writing.find(params[:id])
+    end
+
+    def set_job
+      @job = Job.find(params[:job_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

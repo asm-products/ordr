@@ -17,9 +17,9 @@ class ContactsController < ApplicationController
   end
 
   def create
-    @contact = @contactable.contact.new(contact_params)
+    @contact = @contactable.contacts.new(contact_params)
     if @contact.save
-      redirect_to @contactable, notice: "Contacted added."
+      redirect_to @contactable, notice: "Contact added."
     else
       instance_variable_set("@#{@resource.singularize}".to_sym, @contactable)
       render template: "#{@resource}/show"

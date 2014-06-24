@@ -1,0 +1,7 @@
+= simple_form_for([@job, @network]) do |f|
+  = f.error_notification
+  .form-inputs
+    = f.input :contact
+    = f.input :notes
+  .form-actions
+    = f.button :submit

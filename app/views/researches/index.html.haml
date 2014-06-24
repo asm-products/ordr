@@ -1,0 +1,21 @@
+%h1 Listing researches
+%table
+  %thead
+    %tr
+      %th Values
+      %th Salary
+      %th Location
+      %th Notes
+      %th{:colspan => "3"}
+  %tbody
+    - @researches.each do |research|
+      %tr
+        %td= research.values
+        %td= research.salary
+        %td= research.location
+        %td= research.notes
+        %td= link_to 'Show', research
+        %td= link_to 'Edit', edit_research_path(research)
+        %td= link_to 'Destroy', research, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Research', new_job_research_path

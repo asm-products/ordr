@@ -1,5 +1,6 @@
 class NetworksController < ApplicationController
   before_action :set_network, only: [:show, :edit, :update, :destroy]
+  before_action :set_job
 
   # GET /networks
   # GET /networks.json
@@ -18,7 +19,7 @@ class NetworksController < ApplicationController
 
   # GET /networks/new
   def new
-    @network = Network.new
+    @network = Network.new({job_id: @job.id})
   end
 
   # GET /networks/1/edit
@@ -28,7 +29,7 @@ class NetworksController < ApplicationController
   # POST /networks
   # POST /networks.json
   def create
-    @network = Network.new(network_params)
+    @network = @job.create_network(network_params)
 
     respond_to do |format|
       if @network.save
@@ -71,6 +72,9 @@ class NetworksController < ApplicationController
       @network = Network.find(params[:id])
     end
 
+    def set_job
+      @job = Job.find(params[:job_id])
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def network_params
       params.require(:network).permit(:contact, :note)

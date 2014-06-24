@@ -1,5 +1,6 @@
 class ResearchesController < ApplicationController
   before_action :set_research, only: [:show, :edit, :update, :destroy]
+  before_action :set_job
 
   # GET /researches
   # GET /researches.json
@@ -16,7 +17,7 @@ class ResearchesController < ApplicationController
 
   # GET /researches/new
   def new
-    @research = Research.new
+    @research = Research.new({job_id: @job.id })
   end
 
   # GET /researches/1/edit
@@ -26,9 +27,16 @@ class ResearchesController < ApplicationController
   # POST /researches
   # POST /researches.json
   def create
-    @job = Job.find(params[:job_id])
-    @research = @job.researches.show(params[:research])
-    redirect_to @job, notice: "Research was successfully created"
+    @research = @job.create_research(research_params)
+    respond_to do |format|
+      if @research.save
+        format.html { redirect_to @job, notice: "Research was successfully created" }
+        format.json { render :show, status: :created, location: @job }
+      else
+        format.html {render :new }
+        format.json {render json: @research.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # PATCH/PUT /researches/1
@@ -55,14 +63,19 @@ class ResearchesController < ApplicationController
     end
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_research
-      @research = Research.find(params[:id])
-    end
+private
+  # Use callbacks to share common setup or constraints between actions.
+  def set_research
+    @research = Research.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def research_params
-      params.require(:research).permit(:values, :salary, :location, :note)
-    end
+
+  def set_job
+    @job = Job.find(params[:job_id])
+  end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def research_params
+    params.require(:research).permit(:values, :salary, :location, :notes)
+  end
+
 end

@@ -6,7 +6,9 @@ class Network
   field :contact
   field :notes
 
-  embedded_in :job
   has_many :contacts, as: :contactable
   has_many :notes, as: :notable
+
+  belongs_to :job
+
 end
