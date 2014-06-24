@@ -31,11 +31,11 @@ private
       end
       user.add_provider(auth_hash)
       user.save
-      redirect_to login_path, notice: "Welcome back #{user.name}. You are signed in using #{auth_hash["provider"]}."
+      redirect_to user_path(current_user), notice: "Welcome back #{user.name}. You are signed in using #{auth_hash["provider"]}."
     else
       auth = Authentication.find_or_create(auth_hash)
       session[:user] = auth.user_id
-      redirect_to login_path, notice: "Hello, #{auth.user.name}. You are now signed in."
+      redirect_to user_path(current_user), notice: "Hello, #{auth.user.name}. You are now signed in."
     end
   end
 
@@ -47,7 +47,7 @@ private
     end
     if user && user.authenticate(params[:password])
       session[:user] = user.id
-      redirect_to user_profile_path, notice: "Thank you for signing in, #{user.email}"
+      redirect_to user_path(current_user), notice: "Thank you for signing in, #{user.email}"
     else
       render "/login", alert: "Email or password is invalid!"
     end

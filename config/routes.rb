@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :networks
     resources :researches
   end
-  resources :users, only: [:new, :create]
+  resources :users, only: [:new, :create, :show]
 
   get '/login', to: 'sessions#new', as: :login
   post '/login', to: 'sessions#create', as: :email_login
