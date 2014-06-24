@@ -6,5 +6,5 @@ class Network
   field :contact
   field :notes
 
-  embedded_in :job
+  belongs_to :job
 end
