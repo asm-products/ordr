@@ -2,8 +2,20 @@
   Sessions#new
 %p#notice
   = notice
+  = alert
 
 - if current_user
   = link_to "Sign out", "logout"
+- unless current_user
+  = form_tag do
+    =label_tag :email
+    =text_field_tag :email
+    <br/>
+    =label_tag :password
+    =password_field_tag :password
+    <br/>
+    =submit_tag "Sign in"
+%div#create_pw
+  = link_to "Create a username and password", new_user_path
 %div#linkedin
   = link_to "Sign in with linkedin", "/auth/linkedin"
