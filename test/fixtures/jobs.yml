@@ -2,8 +2,8 @@
 
 one:
   company: MyString
-  postion: MyString
+  position: MyString
 
 two:
   company: MyString
-  postion: MyString
+  position: MyString

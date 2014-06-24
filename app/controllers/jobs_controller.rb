@@ -1,3 +1,4 @@
+
 class JobsController < ApplicationController
   before_action :set_job, only: [:show, :edit, :update, :destroy]
 
@@ -71,6 +72,6 @@ class JobsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def job_params
-      params.require(:job).permit(:company, :postion, :link)
+      params.require(:job).permit(:company, :position, :link)
     end
 end
