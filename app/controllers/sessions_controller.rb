@@ -4,9 +4,9 @@ class SessionsController < ApplicationController
 
   def create
     if request.env['omniauth.auth']
-      create_omniauth
+      login_with_omniauth
     else
-      create_password_login
+      login_with_password
     end
   end
 
@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
   end
 
 private
-  def create_omniauth
+  def login_with_omniauth
     auth_hash = request.env['omniauth.auth']
 
     if session[:user]
@@ -39,7 +39,7 @@ private
     end
   end
 
-  def create_password_login
+  def login_with_password
     begin
       user = User.find_by(email: params[:email])
     rescue
@@ -47,7 +47,7 @@ private
     end
     if user && user.authenticate(params[:password])
       session[:user] = user.id
-      redirect_to login_path, notice: "Thank you for signing in, #{user.email}"
+      redirect_to user_profile_path, notice: "Thank you for signing in, #{user.email}"
     else
       render "/login", alert: "Email or password is invalid!"
     end
