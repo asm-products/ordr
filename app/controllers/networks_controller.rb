@@ -12,9 +12,9 @@ class NetworksController < ApplicationController
   # GET /networks/1.json
   def show
     @contactable = @network
-    @contact = @network.contacts.build
-    @notable = @network
-    @note = @network.notes.build
+    # @contact = @network.contacts
+    # @notable = @network
+    # @note = @network.notes.build
   end
 
   # GET /networks/new

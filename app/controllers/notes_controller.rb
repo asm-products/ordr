@@ -17,7 +17,7 @@ class NotesController < ApplicationController
   end
 
   def create
-    @note = @notable.note.new(note_params)
+    @note = @notable.notes.new(note_params)
     if @note.save
       redirect_to @notable, notice: "noteed added."
     else

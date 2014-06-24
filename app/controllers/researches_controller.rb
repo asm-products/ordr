@@ -11,8 +11,10 @@ class ResearchesController < ApplicationController
   # GET /researches/1
   # GET /researches/1.json
   def show
-    @notable = @research
-    @note = @research.notes.build
+     @contactable = @research
+    # @contact = @research.contacts
+    # @notable = @research
+    # @note = @research.notes.build
   end
 
   # GET /researches/new

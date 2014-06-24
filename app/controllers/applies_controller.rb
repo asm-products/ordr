@@ -11,10 +11,10 @@ class AppliesController < ApplicationController
   # GET /applies/1
   # GET /applies/1.json
   def show
-    @contactable = @apply
-    @contact = @apply.contacts.build
-    @notable = @apply
-    @note = @apply.notes.build
+   @contactable = @apply
+    # @contacts = @apply.contacts
+    # @notable = @apply
+    # @note = @apply.notes
   end
 
   # GET /applies/new

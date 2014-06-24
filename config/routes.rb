@@ -1,8 +1,21 @@
 Rails.application.routes.draw do
   resources :notes
 
-  resources :contacts
-
+  resources :interviews do
+    resources :contacts, shallow: true
+  end
+  resources :applies do
+    resources :contacts, shallow: true
+  end
+  resources :writings do
+    resources :contacts, shallow: true
+  end
+  resources :networks do
+    resources :contacts, shallow: true
+  end
+  resources :researches do
+    resources :contacts, shallow: true
+  end
   resources :jobs do
     resources :contacts
     resources :interviews

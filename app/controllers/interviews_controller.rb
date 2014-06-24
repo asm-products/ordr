@@ -12,7 +12,7 @@ class InterviewsController < ApplicationController
   # GET /interviews/1.json
   def show
     @contactable = @interview
-    @contact = @interview.contacts.build
+    # @contact = @interview.contacts
     # @notable = @interview
     # @note = @interview.notes.build
   end

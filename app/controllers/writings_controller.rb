@@ -11,8 +11,10 @@ class WritingsController < ApplicationController
   # GET /writings/1
   # GET /writings/1.json
   def show
-    @notable = @writing
-    @note = @writing.notes.build
+    @contactable = @writing
+    # @contact = @writing.contacts
+    # @notable = @writing
+    # @note = @writing.notes.build
   end
 
   # GET /writings/new
