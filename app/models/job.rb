@@ -4,7 +4,7 @@ class Job
   include Mongoid::Timestamps
 
   field :company
-  field :postion
+  field :position
   field :link
 
   embeds_one :research
