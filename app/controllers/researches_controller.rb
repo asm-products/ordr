@@ -12,7 +12,7 @@ class ResearchesController < ApplicationController
   # GET /researches/1.json
   def show
      @contactable = @research
-    # @contact = @research.contacts
+    @contact = @research.contacts
     # @notable = @research
     # @note = @research.notes.build
   end

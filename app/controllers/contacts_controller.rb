@@ -1,6 +1,7 @@
 class ContactsController < ApplicationController
   before_action :set_contact, only: [:edit, :update, :destroy]
   before_action :load_contactable
+  before_action :set_job
 
   def index
     @contacts = @contactable.contacts
@@ -19,7 +20,7 @@ class ContactsController < ApplicationController
   def create
     @contact = @contactable.contacts.new(contact_params)
     if @contact.save
-      redirect_to @contactable, notice: "Contact added."
+      redirect_to [@contactable.job, @contactable], notice: "Contact added."
     else
       instance_variable_set("@#{@resource.singularize}".to_sym, @contactable)
       render template: "#{@resource}/show"
@@ -49,12 +50,16 @@ class ContactsController < ApplicationController
   private
 
   def load_contactable
-    resource, id = request.path.split('/')[1..2]
+    resource, id = request.path.split('/')[3..4]
     @contactable = resource.singularize.classify.constantize.find(id)
   end
 
   def set_contact
     @contact = Contact.find(params[:id])
+  end
+
+  def set_job
+    @job = Job.find(params[:job_id])
   end
 
   def contact_params

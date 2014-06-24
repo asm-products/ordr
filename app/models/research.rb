@@ -8,6 +8,6 @@ class Research
   field :location
 
   has_many :notes, as: :notable
-
+  has_many :contacts, as: :contactable
   belongs_to :job
 end

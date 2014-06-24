@@ -2,20 +2,18 @@ Rails.application.routes.draw do
   resources :notes
 
   resources :interviews do
-    resources :contacts, shallow: true
+    resources :contacts
   end
   resources :applies do
-    resources :contacts, shallow: true
+    resources :contacts
   end
   resources :writings do
-    resources :contacts, shallow: true
+    resources :contacts
   end
   resources :networks do
-    resources :contacts, shallow: true
+    resources :contacts
   end
-  resources :researches do
-    resources :contacts, shallow: true
-  end
+
 
 
   resources :jobs do
@@ -23,7 +21,9 @@ Rails.application.routes.draw do
     resources :applies
     resources :writings
     resources :networks
-    resources :researches
+    resources :researches do
+     resources :contacts
+   end
   end
   resources :users, only: [:new, :create]
 
