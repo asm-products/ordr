@@ -162,10 +162,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-<<<<<<< HEAD
   bcrypt
-=======
->>>>>>> a2046e46b99ffc6accc2039336664dcbb5043a67
   better_errors
   binding_of_caller
   bson_ext

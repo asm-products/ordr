@@ -11,6 +11,6 @@
 %p
   %strong Notes:
   = @research.notes
-= link_to 'Edit', edit_research_path(@research)
+= link_to 'Edit', edit_job_research_path(job_id: @job.id, id: @job.research.id)
 |
-\#{link_to 'Back', researches_path}
+\#{link_to 'Back', :back}
