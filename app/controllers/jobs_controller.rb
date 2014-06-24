@@ -32,11 +32,6 @@ class JobsController < ApplicationController
       if @job.save
         format.html { redirect_to @job, notice: 'Job was successfully created.' }
         format.json { render :show, status: :created, location: @job }
-        @job.create_interview(interview_params)
-        @job.create_apply(apply_params)
-        @job.create_network(network_params)
-        @job.create_research(research_params)
-        @job.create_writing(writing_params)
       else
         format.html { render :new }
         format.json { render json: @job.errors, status: :unprocessable_entity }
