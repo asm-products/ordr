@@ -43,8 +43,8 @@ class InterviewsController < ApplicationController
   def update
     respond_to do |format|
       if @interview.update(interview_params)
-        format.html { redirect_to @interview, notice: 'Interview was successfully updated.' }
-        format.json { render :show, status: :ok, location: @interview }
+        format.html { redirect_to @job, notice: 'Interview was successfully updated.' }
+        format.json { render :show, status: :ok, location: @job }
       else
         format.html { render :edit }
         format.json { render json: @interview.errors, status: :unprocessable_entity }

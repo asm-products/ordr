@@ -10,8 +10,6 @@
       %tr
         %td= interview.type
         %td= interview.thank_you
-        %td= link_to 'Show', interview
-        %td= link_to 'Edit', edit_interview_path(interview)
-        %td= link_to 'Destroy', interview, method: :delete, data: { confirm: 'Are you sure?' }
-%br/
+        %td= link_to 'Edit', edit_job_interview_path(@job, interview)
+
 = link_to 'New Interview', new_job_interview_path

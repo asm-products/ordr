@@ -5,6 +5,6 @@
 %p
   %strong Notes:
   = @apply.notes
-= link_to 'Edit', edit_apply_path(@apply)
+= link_to 'Edit', edit_job_apply_path(job_id: @job.id, id: @job.apply.id)
 |
-\#{link_to 'Back', applies_path}
+\#{link_to 'Back', :back}

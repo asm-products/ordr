@@ -25,12 +25,12 @@ class NetworksController < ApplicationController
   # POST /networks
   # POST /networks.json
   def create
-    @network = @job.create_network(network_params)
+    @network = @job.networks.create(network_params)
 
     respond_to do |format|
       if @network.save
-        format.html { redirect_to @network, notice: 'Network was successfully created.' }
-        format.json { render :show, status: :created, location: @network }
+        format.html { redirect_to @job, notice: 'Network was successfully created.' }
+        format.json { render :show, status: :created, location: @job }
       else
         format.html { render :new }
         format.json { render json: @network.errors, status: :unprocessable_entity }
@@ -43,8 +43,8 @@ class NetworksController < ApplicationController
   def update
     respond_to do |format|
       if @network.update(network_params)
-        format.html { redirect_to @network, notice: 'Network was successfully updated.' }
-        format.json { render :show, status: :ok, location: @network }
+        format.html { redirect_to @job, notice: 'Network was successfully updated.' }
+        format.json { render :show, status: :ok, location: @job }
       else
         format.html { render :edit }
         format.json { render json: @network.errors, status: :unprocessable_entity }
