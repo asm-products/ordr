@@ -46,8 +46,8 @@ class ResearchesController < ApplicationController
   def update
     respond_to do |format|
       if @research.update(research_params)
-        format.html { redirect_to @research, notice: 'Research was successfully updated.' }
-        format.json { render :show, status: :ok, location: @research }
+        format.html { redirect_to @job, notice: 'Research was successfully updated.' }
+        format.json { render :show, status: :ok, location: @job }
       else
         format.html { render :edit }
         format.json { render json: @research.errors, status: :unprocessable_entity }
