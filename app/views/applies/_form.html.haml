@@ -1,4 +1,4 @@
-= simple_form_for(@apply) do |f|
+= simple_form_for([@job, @apply]) do |f|
   = f.error_notification
   .form-inputs
     = f.input :sent

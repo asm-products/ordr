@@ -1,4 +1,4 @@
-= simple_form_for(@research) do |f|
+= simple_form_for([@job, @research]) do |f|
   = f.error_notification
   .form-inputs
     = f.input :values
@@ -7,3 +7,4 @@
     = f.input :notes
   .form-actions
     = f.button :submit
+    

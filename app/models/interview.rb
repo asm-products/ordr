@@ -6,5 +6,5 @@ class Interview
   field :type
   field :thank_you, type: Mongoid::Boolean
 
-  embedded_in :job
+  belongs_to :job
 end

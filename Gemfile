@@ -15,3 +15,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'simple_form'
 gem 'spring', group: :development
 gem 'uglifier', '>= 1.3.0'
+
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
+end
