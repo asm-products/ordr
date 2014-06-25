@@ -1,7 +1,15 @@
 = notice
+%p
+  - if current_user.name
+    = "Hello, " + current_user.name
+  - else
+    = "Logged in with " + current_user.email
 
-- if current_user.name
-  = "Hello, " + current_user.name
-- else
-  = "Logged in with " + current_user.email
-- end
+%ul.authentications
+  - if current_user.password_digest
+    %li Password
+  - current_user.authentications.each do |auth|
+    %li= auth.provider
+
+%div
+  = link_to "Add linkedin to your account", "/auth/linkedin"
