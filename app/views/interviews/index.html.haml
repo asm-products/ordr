@@ -1,17 +1,15 @@
-%h1 Listing interviews
-%table
-  %thead
-    %tr
-      %th Type
-      %th Thank you
-      %th{:colspan => "3"}
-  %tbody
-    - @interviews.each do |interview|
-      %tr
-        %td= interview.type
-        %td= interview.thank_you
-        %td= link_to 'Show', interview
-        %td= link_to 'Edit', edit_interview_path(interview)
-        %td= link_to 'Destroy', interview, method: :delete, data: { confirm: 'Are you sure?' }
-%br/
+%header
+  %h1 Interviews
+  %div {{#}}
+
+- @interviews.each do |job|
+  = link_to job do
+    %section
+      %h2= interview.type
+      %h3= interview.thank_you
+
+    / %p= link_to 'Show', interview
+    / %p= link_to 'Edit', edit_interview_path(interview)
+    / %p= link_to 'Destroy', interview, method: :delete, data: { confirm: 'Are you sure?' }
+
 = link_to 'New Interview', new_job_interview_path

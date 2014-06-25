@@ -1,7 +1,6 @@
 %header
-  %section
-    %h1 Job Steps
-    %div {{#}}%
+  %h1 Job Steps
+  %div {{#}}%
 
 %section
   %h2= @job.position
@@ -38,10 +37,7 @@
     %p Interview
     %div
 
-  %section
-    %p Close Job Entry
-
-|
-\#{link_to 'Back', jobs_path}
+%section
+  %p Close Job Entry
 
 %p#notice= notice
