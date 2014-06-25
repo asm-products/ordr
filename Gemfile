@@ -16,6 +16,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'simple_form'
 gem 'spring', group: :development
 gem 'uglifier', '>= 1.3.0'
+gem 'bourbon'
 
 group :development do
   gem 'better_errors'
