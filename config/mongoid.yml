@@ -1,13 +1,15 @@
-development:
-  # Configure available database sessions. (required)
+production:
   sessions:
-    # Defines the default session. (required)
     default:
-      # Defines the name of the default database that Mongoid can connect to.
-      # (required).
+      database: job_search_production
+      hosts:
+        - ordr.herokuapp.com:27017
+      options:
+
+development:
+  sessions:
+    default:
       database: job_search_development
-      # Provides the hosts the default session can connect to. Must be an array
-      # of host:port pairs. (required)
       hosts:
         - localhost:27017
       options:

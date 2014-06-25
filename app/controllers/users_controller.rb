@@ -9,7 +9,7 @@ class UsersController < ApplicationController
       session[:user] = @user.id.to_s
       redirect_to jobs_path, notice: "You have signed up!"
     else
-      render "new", notice: "There was a problem with creating your account"
+      render login_path, notice: "There was a problem with creating your account"
     end
   end
 
