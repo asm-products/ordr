@@ -1,7 +1,8 @@
 = simple_form_for([@job, @interview]) do |f|
   = f.error_notification
   .form-inputs
-    = f.input :type
-    = f.input :thank_you
+    = f.input :type, input_html: { id: 'interview-type' }
+    = f.input :thank_you, as: :radio_buttons, input_html: { id: 'interview-thank-you' }
   .form-actions
-    = f.button :submit
+    = f.button :submit, input_html: { id: 'interview-button-submit' }
+

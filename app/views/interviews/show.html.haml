@@ -1,10 +1,7 @@
 %p#notice= notice
-%p
-  %strong Type:
-  = @interview.type
-%p
-  %strong Thank you:
-  = @interview.thank_you
+%p Type: = @interview.type
+%p Thank you: = @interview.thank_you
+
 = link_to 'Edit', edit_interview_path(@interview)
 |
 \#{link_to 'Back', interviews_path}

@@ -1,7 +1,7 @@
 = simple_form_for([@job, @apply]) do |f|
   = f.error_notification
   .form-inputs
-    = f.input :sent
-    = f.input :notes
+    = f.input :sent, input_html: { id: 'apply-sent' }
+    = f.input :notes, input_html: { id: 'apply-notes' }
   .form-actions
-    = f.button :submit
+    = f.button :submit, input_html: { id: 'apply-button-submit' }
