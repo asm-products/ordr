@@ -4,14 +4,14 @@ class SessionsController < ApplicationController
 
   def create
     if request.env['omniauth.auth']
-      create_omniauth
+      login_with_omniauth
     else
-      create_password_login
+      login_with_password
     end
   end
 
   def failure
-    redirect_to login_path, notice: "In order to log you in, we need permission to access your account."
+    redirect_to login_path, alert: "In order to log you in, we need permission to access your account."
   end
 
   def destroy
@@ -20,36 +20,38 @@ class SessionsController < ApplicationController
   end
 
 private
-  def create_omniauth
+  def login_with_omniauth
     auth_hash = request.env['omniauth.auth']
 
     if session[:user]
       begin
-        user = User.find(session[:user]["$oid"])
+        user = find_user(session[:user])
       rescue
-        redirect_to and return login_path, alert: "User not found!"
+        flash[:alert] = "User not found!"
+        redirect_to and return login_path
       end
       user.add_provider(auth_hash)
-      user.save
-      redirect_to login_path, notice: "Welcome back #{user.name}. You are signed in using #{auth_hash["provider"]}."
+      redirect_to user_path(current_user), notice: "Welcome back #{user.name}. You are signed in using #{auth_hash["provider"]}."
     else
       auth = Authentication.find_or_create(auth_hash)
-      session[:user] = auth.user_id
-      redirect_to login_path, notice: "Hello, #{auth.user.name}. You are now signed in."
+      session[:user] = auth.user_id.to_s
+      redirect_to user_path(current_user), notice: "Hello, #{auth.user.name}. You are now signed in."
     end
   end
 
-  def create_password_login
+  def login_with_password
     begin
       user = User.find_by(email: params[:email])
     rescue
-      redirect_to and return login_path, alert: "User not found!"
+      flash[:alert] = "User not found!"
+      redirect_to and return login_path
     end
     if user && user.authenticate(params[:password])
-      session[:user] = user.id
-      redirect_to login_path, notice: "Thank you for signing in, #{user.email}"
+      session[:user] = user.id.to_s
+      redirect_to user_path(current_user), notice: "Thank you for signing in, #{user.email}"
     else
-      render "/login", alert: "Email or password is invalid!"
+      flash[:alert] = "Email or password is invalid!"
+      render "sessions/new"
     end
   end
 end
