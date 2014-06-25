@@ -11,12 +11,12 @@ class SessionsController < ApplicationController
   end
 
   def failure
-    redirect_to login_path, alert: "In order to log you in, we need permission to access your account."
+    redirect_to login_path, alert: t("session.failed_login.omniauth")
   end
 
   def destroy
     session[:user] = nil
-    redirect_to login_path, notice: "Logged out!"
+    redirect_to login_path, notice: t("session.logout")
   end
 
 private
@@ -27,15 +27,15 @@ private
       begin
         user = find_user(session[:user])
       rescue
-        flash[:alert] = "User not found!"
+        flash[:alert] = t("general_errors.not_in_database", thing: "User")
         redirect_to and return login_path
       end
       user.add_provider(auth_hash)
-      redirect_to jobs_path, notice: "Welcome back #{user.name}. You are signed in using #{auth_hash["provider"]}."
+      redirect_to jobs_path, notice: t('session.returning_user.omniauth', user: user.name, provider: auth_hash["provider"])
     else
       auth = Authentication.find_or_create(auth_hash)
       session[:user] = auth.user_id.to_s
-      redirect_to jobs_path, notice: "Hello, #{auth.user.name}. You are now signed in."
+      redirect_to jobs_path, notice: t('session.new_user.omniauth', user: auth.user.name, provider: auth_hash["provider"])
     end
   end
 
@@ -43,14 +43,14 @@ private
     begin
       user = User.find_by(email: params[:email])
     rescue
-      flash[:alert] = "User not found!"
+      flash[:alert] = t("general_errors.not_in_database", thing: "User")
       redirect_to and return login_path
     end
     if user && user.authenticate(params[:password])
       session[:user] = user.id.to_s
-      redirect_to jobs_path, notice: "Thank you for signing in, #{user.email}"
+      redirect_to jobs_path, notice: t("session.returning_user.email", email: user.email)
     else
-      flash[:alert] = "Email or password is invalid!"
+      flash[:alert] = t("session.failed_login.email")
       render "sessions/new"
     end
   end
