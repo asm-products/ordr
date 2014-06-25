@@ -1,3 +1,4 @@
 %h1 New interview
-= render 'form'
+= link_to "new contact", new_job_interview_contact_path(@job, @interview)
+= link_to "new note", new_job_interview_note_path(@job, @interview)
 = link_to 'Back', :back

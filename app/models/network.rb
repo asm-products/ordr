@@ -3,8 +3,12 @@ class Network
   include Mongoid::Paranoia
   include Mongoid::Timestamps
 
-  field :contact
-  field :notes
+  field :date
+  field :time
+
+  has_many :contacts, as: :contactable
+  has_many :notes, as: :notable
 
   belongs_to :job
+
 end

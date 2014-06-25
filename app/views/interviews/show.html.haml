@@ -5,6 +5,8 @@
 %p
   %strong Thank you:
   = @interview.thank_you
-= link_to 'Edit', edit_interview_path(@interview)
+= link_to 'Edit', edit_job_interview_path(@job, @interview)
 |
-\#{link_to 'Back', interviews_path}
+\#{link_to 'Back', :back}
+= link_to "new contact", new_job_interview_contact_path(@job, @interview)
+= link_to "new note", new_job_interview_note_path(@job, @interview)

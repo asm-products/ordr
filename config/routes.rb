@@ -2,11 +2,26 @@ Rails.application.routes.draw do
   root 'sessions#new'
 
   resources :jobs do
-    resources :interviews
-    resources :applies
-    resources :writings
-    resources :networks
-    resources :researches
+    resources :interviews do
+      resources :contacts
+      resources :notes
+    end
+    resources :applies do
+      resources :contacts
+      resources :notes
+    end
+    resources :writings do
+      resources :contacts
+      resources :notes
+    end
+    resources :networks do
+      resources :contacts
+      resources :notes
+    end
+    resources :researches do
+      resources :contacts
+      resources :notes
+    end
   end
   resources :users, only: [:new, :create, :show]
 
