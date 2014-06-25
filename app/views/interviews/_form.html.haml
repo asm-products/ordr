@@ -1,0 +1,7 @@
+= simple_form_for([@job, @interview]) do |f|
+  = f.error_notification
+  .form-inputs
+    = f.input :type
+    = f.input :thank_you
+  .form-actions
+    = f.button :submit

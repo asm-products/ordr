@@ -7,5 +7,5 @@ class Writing
   field :cover_letter, type: Mongoid::Boolean
   field :notes
 
-  embedded_in :job
+  belongs_to :job
 end

@@ -1,5 +1,6 @@
 class AppliesController < ApplicationController
   before_action :set_apply, only: [:show, :edit, :update, :destroy]
+  before_action :set_job
 
   # GET /applies
   # GET /applies.json
@@ -14,7 +15,7 @@ class AppliesController < ApplicationController
 
   # GET /applies/new
   def new
-    @apply = Apply.new
+    @apply = Apply.new({job_id: @job.id })
   end
 
   # GET /applies/1/edit
@@ -24,12 +25,12 @@ class AppliesController < ApplicationController
   # POST /applies
   # POST /applies.json
   def create
-    @apply = Apply.new(apply_params)
+    @apply = @job.create_apply(apply_params)
 
     respond_to do |format|
       if @apply.save
-        format.html { redirect_to @apply, notice: 'Apply was successfully created.' }
-        format.json { render :show, status: :created, location: @apply }
+        format.html { redirect_to @job, notice: 'Apply was successfully created.' }
+        format.json { render :show, status: :created, location: @job }
       else
         format.html { render :new }
         format.json { render json: @apply.errors, status: :unprocessable_entity }
@@ -65,6 +66,10 @@ class AppliesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_apply
       @apply = Apply.find(params[:id])
+    end
+
+    def set_job
+      @job = Job.find(params[:job_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

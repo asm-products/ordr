@@ -8,5 +8,5 @@ class Research
   field :location
   field :notes
 
-  embedded_in :job
+  belongs_to :job
 end
