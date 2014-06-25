@@ -11,6 +11,10 @@ class InterviewsController < ApplicationController
   # GET /interviews/1
   # GET /interviews/1.json
   def show
+    @contactable = @interview
+    @contact = @interview.contacts
+    @notable = @interview
+    @note = @interview.notes
   end
 
   # GET /interviews/new
@@ -25,11 +29,11 @@ class InterviewsController < ApplicationController
   # POST /interviews
   # POST /interviews.json
   def create
-    @interview = @job.create_interview(interview_params)
+    @interview = @job.interviews.create(interview_params)
 
     respond_to do |format|
       if @interview.save
-        format.html { redirect_to @job, notice: 'Interview was successfully created.' }
+        format.html { redirect_to edit_job_interview_path(@job, @interview), notice: 'Interview was successfully created.' }
         format.json { render :show, status: :created, location: @job }
       else
         format.html { render :new }
@@ -43,8 +47,8 @@ class InterviewsController < ApplicationController
   def update
     respond_to do |format|
       if @interview.update(interview_params)
-        format.html { redirect_to @interview, notice: 'Interview was successfully updated.' }
-        format.json { render :show, status: :ok, location: @interview }
+        format.html { redirect_to @job, notice: 'Interview was successfully updated.' }
+        format.json { render :show, status: :ok, location: @job }
       else
         format.html { render :edit }
         format.json { render json: @interview.errors, status: :unprocessable_entity }
@@ -74,6 +78,6 @@ class InterviewsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def interview_params
-      params.require(:interview).permit(:type, :thank_you)
+      params.require(:interview).permit(:type, :thank_you, :contact, :note)
     end
 end

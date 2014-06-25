@@ -6,7 +6,8 @@ class Research
   field :values
   field :salary
   field :location
-  field :notes
 
+  has_many :notes, as: :notable
+  has_many :contacts, as: :contactable
   belongs_to :job
 end

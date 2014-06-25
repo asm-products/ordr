@@ -1,5 +1,5 @@
 %h1 Editing Network
 = render 'form'
-= link_to 'Show', @network
-|
-\#{link_to 'Back', networks_path}
+\#{link_to 'Back', :back}
+= link_to "new contact", new_job_network_contact_path(@job, @network)
+= link_to "new note", new_job_network_note_path(@job, @network)

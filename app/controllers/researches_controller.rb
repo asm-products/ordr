@@ -11,6 +11,10 @@ class ResearchesController < ApplicationController
   # GET /researches/1
   # GET /researches/1.json
   def show
+     @contactable = @research
+    @contact = @research.contacts
+    @notable = @research
+    @note = @research.notes
   end
 
   # GET /researches/new
@@ -42,8 +46,8 @@ class ResearchesController < ApplicationController
   def update
     respond_to do |format|
       if @research.update(research_params)
-        format.html { redirect_to @research, notice: 'Research was successfully updated.' }
-        format.json { render :show, status: :ok, location: @research }
+        format.html { redirect_to @job, notice: 'Research was successfully updated.' }
+        format.json { render :show, status: :ok, location: @job }
       else
         format.html { render :edit }
         format.json { render json: @research.errors, status: :unprocessable_entity }
@@ -67,6 +71,7 @@ private
     @research = Research.find(params[:id])
   end
 
+
   def set_job
     @job = Job.find(params[:job_id])
   end
@@ -74,4 +79,5 @@ private
   def research_params
     params.require(:research).permit(:values, :salary, :location, :notes)
   end
+
 end
