@@ -31,11 +31,11 @@ private
         redirect_to and return login_path
       end
       user.add_provider(auth_hash)
-      redirect_to user_path(current_user), notice: "Welcome back #{user.name}. You are signed in using #{auth_hash["provider"]}."
+      redirect_to jobs_path, notice: "Welcome back #{user.name}. You are signed in using #{auth_hash["provider"]}."
     else
       auth = Authentication.find_or_create(auth_hash)
       session[:user] = auth.user_id.to_s
-      redirect_to user_path(current_user), notice: "Hello, #{auth.user.name}. You are now signed in."
+      redirect_to jobs_path, notice: "Hello, #{auth.user.name}. You are now signed in."
     end
   end
 
@@ -48,7 +48,7 @@ private
     end
     if user && user.authenticate(params[:password])
       session[:user] = user.id.to_s
-      redirect_to user_path(current_user), notice: "Thank you for signing in, #{user.email}"
+      redirect_to jobs_path, notice: "Thank you for signing in, #{user.email}"
     else
       flash[:alert] = "Email or password is invalid!"
       render "sessions/new"

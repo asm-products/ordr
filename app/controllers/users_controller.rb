@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user] = @user.id.to_s
-      redirect_to login_path, notice: "You have signed up!"
+      redirect_to jobs_path, notice: "You have signed up!"
     else
       render "new", notice: "There was a problem with creating your account"
     end
