@@ -11,6 +11,10 @@ class AppliesController < ApplicationController
   # GET /applies/1
   # GET /applies/1.json
   def show
+   @contactable = @apply
+    @contacts = @apply.contacts
+    @notable = @apply
+    @note = @apply.notes
   end
 
   # GET /applies/new
@@ -43,8 +47,8 @@ class AppliesController < ApplicationController
   def update
     respond_to do |format|
       if @apply.update(apply_params)
-        format.html { redirect_to @apply, notice: 'Apply was successfully updated.' }
-        format.json { render :show, status: :ok, location: @apply }
+        format.html { redirect_to @job, notice: 'Apply was successfully updated.' }
+        format.json { render :show, status: :ok, location: @job }
       else
         format.html { render :edit }
         format.json { render json: @apply.errors, status: :unprocessable_entity }
@@ -74,6 +78,6 @@ class AppliesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def apply_params
-      params.require(:apply).permit(:sent, :notes)
+      params.require(:apply).permit(:contact, :sent, :note)
     end
 end
