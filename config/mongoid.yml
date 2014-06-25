@@ -1,10 +1,10 @@
 production:
   sessions:
     default:
-      database: job_search_production
-      hosts:
-        - ordr.herokuapp.com:27017
+      uri: <%= ENV['MONGOHQ_URL'] %>
       options:
+        skip_version_check: true
+        safe: true
 
 development:
   sessions:
