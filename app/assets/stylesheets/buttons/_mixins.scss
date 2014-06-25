@@ -1,0 +1,23 @@
+@mixin button($background_color, $color, $font-family, $font-weight, $border, $hover_color, $hover_text_color: none, $hover_border: none) {
+  border-radius: .5em;
+  background: $background_color;
+  color: $color;
+  font-family: $font-family;
+  font-weight: $font-weight;
+  font-size: 1em;
+  text-transform: uppercase;
+  border: $border;
+  focus: none;
+  padding: .5em 1.25em;
+  outline: none;
+  &:hover {
+    background: $hover_color;
+    cursor: pointer;
+    color: $hover_text_color;
+    border: $hover_border;
+  }
+}
+
+
+
+

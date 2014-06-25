@@ -1,0 +1,33 @@
+// A module is a singular functional deliverable
+// which will be unchanged in form, functionality and content.
+// Examples are site header, main navigation and footer.
+// One could argue that a module is engineered as a 'plug-n-play' element.
+// Modules and UI Patters can be directories unto themselves.
+
+
+//-----alerts-----//
+@mixin alert($color, $type) {
+  .alert-#{$type} {
+    width: 100%;
+    line-height: 2em;
+    text-align: center;
+    background: $color;
+    color: #fff;
+    padding-left: 5%;
+    border-bottom: 1px solid $golf_color_charlie;
+    text-transform: uppercase;
+    & a {
+      position: relative;
+      float: right;
+      padding-right: 5%;
+      text-decoration: none;
+      color: $foxtrot_primary;
+      font-size: 1em;
+      &:hover {
+        color: $foxtrot_color_bravo;
+      }
+    }
+  }
+}
+
+//-----...-----//
