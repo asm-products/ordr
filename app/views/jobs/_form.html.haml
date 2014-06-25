@@ -12,6 +12,6 @@
   .field
     = f.input :position, input_html: { id: 'job-position' }
   .field
-    = f.input :link, input_html: { id: 'job-url' }
+    = f.input :link, input_html: { :type => 'url', id: 'job-url' }
     .actions
       = f.button :submit, input_html: { id: 'job-button-submit' }
