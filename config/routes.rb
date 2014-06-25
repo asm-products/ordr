@@ -10,8 +10,9 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create, :show]
 
   get '/login', to: 'sessions#new', as: :login
-  get '/auth/:provider/callback', to: 'sessions#create'
-  get 'sessions/failure', to: 'sessions#failure'
+  post '/login', to: 'sessions#create'
+  get '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
+  get 'auth/failure', to: 'sessions#failure'
   get '/logout', to: 'sessions#destroy', as: :logout
 
 end

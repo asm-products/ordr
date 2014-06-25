@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
   end
 
   def failure
-    redirect_to login_path, notice: "In order to log you in, we need permission to access your account."
+    redirect_to login_path, alert: "In order to log you in, we need permission to access your account."
   end
 
   def destroy
@@ -27,7 +27,8 @@ private
       begin
         user = find_user(session[:user])
       rescue
-        redirect_to and return login_path, alert: "User not found!"
+        flash[:alert] = "User not found!"
+        redirect_to and return login_path
       end
       user.add_provider(auth_hash)
       redirect_to user_path(current_user), notice: "Welcome back #{user.name}. You are signed in using #{auth_hash["provider"]}."
@@ -42,13 +43,15 @@ private
     begin
       user = User.find_by(email: params[:email])
     rescue
-      redirect_to and return login_path, alert: "User not found!"
+      flash[:alert] = "User not found!"
+      redirect_to and return login_path
     end
     if user && user.authenticate(params[:password])
       session[:user] = user.id.to_s
       redirect_to user_path(current_user), notice: "Thank you for signing in, #{user.email}"
     else
-      render "/login", alert: "Email or password is invalid!"
+      flash[:alert] = "Email or password is invalid!"
+      render "sessions/new"
     end
   end
 end

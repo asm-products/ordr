@@ -3,13 +3,12 @@
   - if current_user.name
     = "Hello, " + current_user.name
   - else
-    = "Logged in with " + current_user.email
+    = "Logged in as " + current_user.email
 
-%ul.authentications
-  - if current_user.password_digest
-    %li Password
-  - current_user.authentications.each do |auth|
-    %li= auth.provider
-
-%div
-  = link_to "Add linkedin to your account", "/auth/linkedin"
+%p
+  You sign in using:
+  %ul.authentications
+    - if current_user.password_digest
+      %li email and password
+    - current_user.authentications.each do |auth|
+      %li= auth.provider
