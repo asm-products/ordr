@@ -8,6 +8,7 @@
 %p
   %strong Notes:
   = @writing.notes
-= link_to 'Edit', edit_writing_path(@writing)
+= link_to 'Edit', edit_job_writing_path(job_id: @job.id, id: @job.writing.id)
+= link_to "new contact", new_job_writing_contact_path(@job, @writing)
 |
-\#{link_to 'Back', writings_path}
+\#{link_to 'Back', :back}

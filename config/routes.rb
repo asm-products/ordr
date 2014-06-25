@@ -1,29 +1,26 @@
 Rails.application.routes.draw do
-  resources :notes
-
-  resources :interviews do
-    resources :contacts
-  end
-  resources :applies do
-    resources :contacts
-  end
-  resources :writings do
-    resources :contacts
-  end
-  resources :networks do
-    resources :contacts
-  end
-
-
 
   resources :jobs do
-    resources :interviews
-    resources :applies
-    resources :writings
-    resources :networks
+    resources :interviews do
+      resources :contacts
+      resources :notes
+    end
+    resources :applies do
+      resources :contacts
+      resources :notes
+    end
+    resources :writings do
+      resources :contacts
+      resources :notes
+    end
+    resources :networks do
+      resources :contacts
+      resources :notes
+    end
     resources :researches do
-     resources :contacts
-   end
+      resources :contacts
+      resources :notes
+    end
   end
   resources :users, only: [:new, :create]
 

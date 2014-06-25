@@ -1,5 +1,6 @@
 %h1 Editing writing
 = render 'form'
-= link_to 'Show', @writing
 |
-\#{link_to 'Back', writings_path}
+\#{link_to 'Back', :back}
+= link_to "new contact", new_job_writing_contact_path(@job, @writing)
+= link_to "new note", new_job_writing_note_path(@job, @writing)

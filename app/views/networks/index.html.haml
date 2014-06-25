@@ -10,8 +10,7 @@
       %tr
         %td= network.contact
         %td= network.notes
-        %td= link_to 'Show', network
-        %td= link_to 'Edit', edit_network_path(network)
-        %td= link_to 'Destroy', network, method: :delete, data: { confirm: 'Are you sure?' }
-%br/
+        %td= link_to 'Edit', edit_job_network_path(@job, network)
+
 = link_to 'New Network', new_job_network_path
+

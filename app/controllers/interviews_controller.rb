@@ -12,9 +12,10 @@ class InterviewsController < ApplicationController
   # GET /interviews/1.json
   def show
     @contactable = @interview
-    # @contact = @interview.contacts
-    # @notable = @interview
-    # @note = @interview.notes.build
+    redirect_to edit_job_interview_path(@job, @interview)
+    @contact = @interview.contacts
+    @notable = @interview
+    @note = @interview.notes
   end
 
   # GET /interviews/new
@@ -47,8 +48,8 @@ class InterviewsController < ApplicationController
   def update
     respond_to do |format|
       if @interview.update(interview_params)
-        format.html { redirect_to @interview, notice: 'Interview was successfully updated.' }
-        format.json { render :show, status: :ok, location: @interview }
+        format.html { redirect_to @job, notice: 'Interview was successfully updated.' }
+        format.json { render :show, status: :ok, location: @job }
       else
         format.html { render :edit }
         format.json { render json: @interview.errors, status: :unprocessable_entity }

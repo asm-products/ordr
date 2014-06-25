@@ -12,9 +12,10 @@ class WritingsController < ApplicationController
   # GET /writings/1.json
   def show
     @contactable = @writing
-    # @contact = @writing.contacts
-    # @notable = @writing
-    # @note = @writing.notes.build
+    @contact = @writing.contacts
+       redirect_to edit_job_writing_path(@job, @writing)
+    @notable = @writing
+    @note = @writing.notes
   end
 
   # GET /writings/new
@@ -47,8 +48,8 @@ class WritingsController < ApplicationController
   def update
     respond_to do |format|
       if @writing.update(writing_params)
-        format.html { redirect_to @writing, notice: 'Writing was successfully updated.' }
-        format.json { render :show, status: :ok, location: @writing }
+        format.html { redirect_to @job, notice: 'Writing was successfully updated.' }
+        format.json { render :show, status: :ok, location: @job }
       else
         format.html { render :edit }
         format.json { render json: @writing.errors, status: :unprocessable_entity }

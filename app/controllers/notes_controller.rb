@@ -1,6 +1,7 @@
 class NotesController < ApplicationController
   before_action :set_note, only: [:edit, :update, :destroy]
   before_action :load_notable
+  before_action :set_job
 
   def index
     @notes = @notable.notes
@@ -19,7 +20,7 @@ class NotesController < ApplicationController
   def create
     @note = @notable.notes.new(note_params)
     if @note.save
-      redirect_to @notable, notice: "noteed added."
+      redirect_to [@notable.job, @notable], notice: "note added."
     else
       instance_variable_set("@#{@resource.singularize}".to_sym, @notable)
       render template: "#{@resource}/show"
@@ -49,8 +50,12 @@ class NotesController < ApplicationController
   private
 
   def load_notable
-    resource, id = request.path.split('/')[1..2]
+    resource, id = request.path.split('/')[3..4]
     @notable = resource.singularize.classify.constantize.find(id)
+  end
+
+  def set_job
+    @job = Job.find(params[:job_id])
   end
 
   def set_note

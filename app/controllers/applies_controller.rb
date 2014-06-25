@@ -12,9 +12,10 @@ class AppliesController < ApplicationController
   # GET /applies/1.json
   def show
    @contactable = @apply
-    # @contacts = @apply.contacts
-    # @notable = @apply
-    # @note = @apply.notes
+      redirect_to edit_job_apply_path(@job, @apply)
+    @contacts = @apply.contacts
+    @notable = @apply
+    @note = @apply.notes
   end
 
   # GET /applies/new
@@ -47,8 +48,8 @@ class AppliesController < ApplicationController
   def update
     respond_to do |format|
       if @apply.update(apply_params)
-        format.html { redirect_to @apply, notice: 'Apply was successfully updated.' }
-        format.json { render :show, status: :ok, location: @apply }
+        format.html { redirect_to @job, notice: 'Apply was successfully updated.' }
+        format.json { render :show, status: :ok, location: @job }
       else
         format.html { render :edit }
         format.json { render json: @apply.errors, status: :unprocessable_entity }
