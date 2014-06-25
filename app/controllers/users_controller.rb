@@ -7,9 +7,9 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user] = @user.id.to_s
-      redirect_to jobs_path, notice: t("session.new_user.email", user: @user.email)
+      redirect_to jobs_path, notice: t('session.messages.new_user.email', user: @user.email)
     else
-      render login_path, notice: t("session.failed_account_creation")
+      render login_path, notice: t('session.messages.failed_account_creation')
     end
   end
 
