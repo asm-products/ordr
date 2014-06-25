@@ -1,0 +1,11 @@
+@import "mixins";
+
+//-----Alerts------
+@include alert($alpha_color, bad);
+@include alert($bravo_color, good);
+
+//-----Main Header-----
+.main_header {
+  background-color: $header_background;
+  width: 100%;
+}

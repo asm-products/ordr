@@ -50,6 +50,9 @@ GEM
       erubis (>= 2.6.6)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    bourbon (3.2.3)
+      sass (~> 3.2)
+      thor
     bson (2.3.0)
     bson_ext (1.5.1)
     builder (3.2.2)
@@ -66,7 +69,7 @@ GEM
     eefgilm (1.0.0)
     erubis (2.7.0)
     execjs (2.2.0)
-    haml (4.0.5)
+    haml (4.1.0.beta.1)
       tilt
     hike (1.2.3)
     hpricot (0.8.6)
@@ -162,6 +165,7 @@ PLATFORMS
 DEPENDENCIES
   better_errors
   binding_of_caller
+  bourbon
   bson_ext
   coffee-rails (~> 4.0.0)
   eefgilm
