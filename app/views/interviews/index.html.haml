@@ -8,8 +8,37 @@
   %tbody
     - @interviews.each do |interview|
       %tr
-        %td= interview.type
-        %td= interview.thank_you
-        %td= link_to 'Edit', edit_job_interview_path(@job, interview)
+        %td
+          = interview.type
+        %td
+          = interview.thank_you
+        %td
+          = link_to 'Edit', edit_job_interview_path(@job, interview)
+        %table
+          %tr
+            %td
+              %table
+                %tbody
+                  - interview.contacts.each do |contact|
+                    %tr
+                      %td
+                        Name: #{contact.name}
+                      %td
+                        Company:  #{contact.company}
+                      %td
+                        Email:  #{contact.email}
+                      %td
+                        Phone: #{contact.phone}
+                      %td
+                        Linkedin Url: #{contact.linkedin_url}
+                      %td= link_to 'Edit', edit_job_interview_contact_path(@job, interview, contact)
+                      %td= link_to 'Delete', job_interview_note_path(@job, interview, contact), method: :delete, data: { confirm: 'Are you sure?' }
+                  - interview.notes.each do |note|
+                    %tr
+                      %td
+                        Note: #{note.content}
+                      %td= link_to 'Edit', edit_job_interview_note_path(@job, interview, note)
+                      %td= link_to 'Delete', job_interview_note_path(@job, interview, note), method: :delete, data: { confirm: 'Are you sure?' }
+                      %td= link_to 'Edit', edit_job_interview_path(@job, network)
 
-= link_to 'New Interview', new_job_interview_path
+    = button_to 'New Interview', job_interviews_path(@job, Interview.new, :interview => {job_id: @job.id}), :method => :post

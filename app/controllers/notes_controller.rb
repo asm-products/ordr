@@ -30,7 +30,7 @@ class NotesController < ApplicationController
   def update
     respond_to do |format|
       if @note.update(note_params)
-        format.html { redirect_to @notable, notice: 'note was successfully updated.' }
+        format.html { redirect_to [@notable.job, @notable], notice: 'note was successfully updated.' }
         format.json { render :show, status: :ok, location: @notable }
       else
         format.html { render :edit }
@@ -42,7 +42,7 @@ class NotesController < ApplicationController
   def destroy
     @note.destroy
     respond_to do |format|
-      format.html { redirect_to @notable, notice: "note was successfully deleted."}
+      format.html { redirect_to [@notable.job, @notable], notice: "note was successfully deleted."}
       format.json {head :no_content }
     end
   end

@@ -13,7 +13,6 @@ class ResearchesController < ApplicationController
   def show
      @contactable = @research
     @contact = @research.contacts
-       redirect_to edit_job_research_path(@job, @research)
     @notable = @research
     @note = @research.notes
   end

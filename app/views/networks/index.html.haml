@@ -8,9 +8,29 @@
   %tbody
     - @networks.each do |network|
       %tr
-        %td= network.contact
-        %td= network.notes
-        %td= link_to 'Edit', edit_job_network_path(@job, network)
+        %td
+          %table
+            %tbody
+              - network.contacts.each do |contact|
+                %tr
+                  %td
+                    Name: #{contact.name}
+                  %td
+                    Company:  #{contact.company}
+                  %td
+                    Email:  #{contact.email}
+                  %td
+                    Phone: #{contact.phone}
+                  %td
+                    Linkedin Url: #{contact.linkedin_url}
+                  %td= link_to 'Edit', edit_job_network_contact_path(@job, network, contact)
+                  %td= link_to 'Delete', job_network_contact_path(@job, network, contact), method: :delete, data: { confirm: 'Are you sure?' }
+              - network.notes.each do |note|
+                %tr
+                  %td
+                    Note: #{note.content}
+                  %td= link_to 'Edit', edit_job_network_note_path(@job, network, note)
+                  %td= link_to 'Delete', job_network_note_path(@job, network, note), method: :delete, data: { confirm: 'Are you sure?' }
+                  %td= link_to 'Edit', edit_job_network_path(@job, network)
 
-= link_to 'New Network', new_job_network_path
-
+= button_to 'New Network', job_networks_path(@job, Network.new, :network => {job_id: @job.id}), :method => :post

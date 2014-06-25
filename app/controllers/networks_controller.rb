@@ -11,8 +11,8 @@ class NetworksController < ApplicationController
   # GET /networks/1
   # GET /networks/1.json
   def show
+    redirect_to job_networks_path(@job, @networks)
     @contactable = @network
-       redirect_to edit_job_network_path(@job, @network)
     @contact = @network.contacts
     @notable = @network
     @note = @network.notes
@@ -34,7 +34,7 @@ class NetworksController < ApplicationController
 
     respond_to do |format|
       if @network.save
-        format.html { redirect_to @job, notice: 'Network was successfully created.' }
+        format.html { redirect_to edit_job_network_path(@job, @network), notice: 'Network was successfully created.' }
         format.json { render :show, status: :created, location: @job }
       else
         format.html { render :new }

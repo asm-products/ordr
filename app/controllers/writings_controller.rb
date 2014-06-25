@@ -13,7 +13,6 @@ class WritingsController < ApplicationController
   def show
     @contactable = @writing
     @contact = @writing.contacts
-       redirect_to edit_job_writing_path(@job, @writing)
     @notable = @writing
     @note = @writing.notes
   end

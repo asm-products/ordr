@@ -12,7 +12,6 @@ class AppliesController < ApplicationController
   # GET /applies/1.json
   def show
    @contactable = @apply
-      redirect_to edit_job_apply_path(@job, @apply)
     @contacts = @apply.contacts
     @notable = @apply
     @note = @apply.notes

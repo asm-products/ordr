@@ -12,7 +12,6 @@ class InterviewsController < ApplicationController
   # GET /interviews/1.json
   def show
     @contactable = @interview
-    redirect_to edit_job_interview_path(@job, @interview)
     @contact = @interview.contacts
     @notable = @interview
     @note = @interview.notes
@@ -30,11 +29,11 @@ class InterviewsController < ApplicationController
   # POST /interviews
   # POST /interviews.json
   def create
-    @interview = @job.create_interview(interview_params)
+    @interview = @job.interviews.create(interview_params)
 
     respond_to do |format|
       if @interview.save
-        format.html { redirect_to @job, notice: 'Interview was successfully created.' }
+        format.html { redirect_to edit_job_interview_path(@job, @interview), notice: 'Interview was successfully created.' }
         format.json { render :show, status: :created, location: @job }
       else
         format.html { render :new }
