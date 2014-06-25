@@ -10,3 +10,17 @@
 \#{link_to 'Back', :back}
 
 = link_to "new contact", new_job_apply_contact_path(@job, @apply)
+
+
+%table
+  %tbody
+    - @apply.contacts.each do |comment|
+      %tr
+        - if !comment.new_record?
+          %td
+            Name: #{contact.name}
+          %td
+            Company:  #{contact.company}
+          %td
+            %td= link_to 'Edit', edit_job_apply_contact_path(@apply, contact)
+            %td= link_to 'Delete', job_apply_contact_path(@apply, contact), method: :delete, data: { confirm: 'Are you sure?' }
