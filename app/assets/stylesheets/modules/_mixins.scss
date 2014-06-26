@@ -14,7 +14,7 @@
     background: $color;
     color: #fff;
     padding-left: 5%;
-    border-bottom: 1px solid $golf_color_charlie;
+    border-bottom: 1px solid$golf_color_charlie;
     text-transform: uppercase;
     & a {
       position: relative;
@@ -23,11 +23,14 @@
       text-decoration: none;
       color: $foxtrot_primary;
       font-size: 1em;
+      font-family: Lato;
+      font-weight: 700;
       &:hover {
-        color: $foxtrot_color_bravo;
+        color: $delta_color;
       }
     }
   }
 }
+
 
 //-----...-----//
