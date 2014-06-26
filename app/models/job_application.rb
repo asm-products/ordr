@@ -1,6 +1,8 @@
 class JobApplication
   include Mongoid::Document
-  
+  include Mongoid::Paranoia
+  include Mongoid::Timestamps
+
   field :sent, type: Mongoid::Boolean
 
   has_many :contacts, as: :contactable

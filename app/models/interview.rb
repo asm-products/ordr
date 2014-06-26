@@ -1,7 +1,7 @@
 class Interview
   include Mongoid::Document
-  field :interview_things, type: String
-
+  include Mongoid::Paranoia
+  include Mongoid::Timestamps
   field :type
   field :thank_you, type: Mongoid::Boolean
 

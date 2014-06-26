@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Title:</strong>
   <%= @job.title %>
@@ -42,9 +40,12 @@
 </p>
 
 <p>
-  <strong>Networking:</strong>
   <%= render "networks/networks" %>
 </p>
+
+<p>
+  <strong>Add a network!!!!!!!!!!</strong>
+  <%= render "networks/edit" %>
 
 <p>
   <strong>Prepare Resume:</strong>
@@ -52,11 +53,17 @@
 </p>
 
 <p>
+  <strong>Have you applied?</strong>
+  <%= render "job_applications/edit" %>
 </p>
 
+<p>
+  <%= render "interviews/interviews" %>
+</p>
 
 <p>
-
+  <strong>Add an Interview</strong>
+  <%= render "interviews/edit" %>
 </p>
 
 <%= link_to 'Edit', edit_job_path(@job) %> |

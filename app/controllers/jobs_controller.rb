@@ -1,6 +1,6 @@
 class JobsController < ApplicationController
   before_filter :check_authorization
-  before_action :set_job, only: [:show, :edit, :update, :destroy]
+  before_action :set_job, only: [:show, :edit, :update, :destroy, :new_network, :new_interview]
 
   # GET /jobs
   # GET /jobs.json
@@ -68,6 +68,16 @@ class JobsController < ApplicationController
       format.html { redirect_to jobs_url, notice: 'Job was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def new_network
+    @job.networks.create
+    redirect_to @job
+  end
+
+  def new_interview
+    @job.interviews.create
+    redirect_to @job
   end
 
 private

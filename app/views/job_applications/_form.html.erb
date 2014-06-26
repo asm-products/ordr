@@ -12,8 +12,10 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :application_things %><br>
-    <%= f.text_field :application_things %>
+    <%= f.fields_for :job_application do |a| %>
+    <%= a.label :sent %><br>
+    <%= a.check_box :sent %><br>
+    <% end %>
   </div>
   <div class="actions">
     <%= f.submit %>

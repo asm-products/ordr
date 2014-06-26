@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
-  resources :jobs
+  resources :jobs do
+    member do
+      put :new_network
+      patch :new_network
+      put :new_interview
+      patch :new_interview
+    end
+  end
   root 'sessions#new'
   resources :users, only: [:new, :create, :show]
 
