@@ -43,14 +43,7 @@
 
 <p>
   <strong>Networking:</strong>
-  <% @networks.each do |n| %>
-    <%= n.date %><br>
-      <%= form_for[@job, n] do |f| %>
-        <strong>Edit Networking:</strong>
-        <%= f.label :date  %><br>
-        <%= f.text_field :date %>
-    <% end %>
-  <% end %>
+  <%= render "networks/networks" %>
 </p>
 
 <p>
@@ -59,17 +52,11 @@
 </p>
 
 <p>
-  <strong>Time to Apply</strong>
-  <%= render "job_applications/edit" %>
 </p>
 
 
 <p>
-  <% @interviews.each do |i| %>
-  <%= i.name %>
-    <%= form_for[@job, i] do |f| %>
-  <% end %>
-  <% end %>
+
 </p>
 
 <%= link_to 'Edit', edit_job_path(@job) %> |
