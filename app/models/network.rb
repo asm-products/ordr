@@ -1,10 +1,6 @@
 class Network
   include Mongoid::Document
-  include Mongoid::Paranoia
-  include Mongoid::Timestamps
+  field :network_things, type: String
 
-  field :contact
-  field :notes
-
-  belongs_to :job
+  embedded_in :job
 end

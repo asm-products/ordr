@@ -18,7 +18,7 @@ class ResearchesControllerTest < ActionController::TestCase
 
   test "should create research" do
     assert_difference('Research.count') do
-      post :create, research: { location: @research.location, notes: @research.notes, salary: @research.salary, values: @research.values }
+      post :create, research: { research_things: @research.research_things }
     end
 
     assert_redirected_to research_path(assigns(:research))
@@ -35,7 +35,7 @@ class ResearchesControllerTest < ActionController::TestCase
   end
 
   test "should update research" do
-    patch :update, id: @research, research: { location: @research.location, notes: @research.notes, salary: @research.salary, values: @research.values }
+    patch :update, id: @research, research: { research_things: @research.research_things }
     assert_redirected_to research_path(assigns(:research))
   end
 

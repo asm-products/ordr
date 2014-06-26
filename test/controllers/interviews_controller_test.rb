@@ -18,7 +18,7 @@ class InterviewsControllerTest < ActionController::TestCase
 
   test "should create interview" do
     assert_difference('Interview.count') do
-      post :create, interview: { thank_you: @interview.thank_you, type: @interview.type }
+      post :create, interview: { interview_things: @interview.interview_things }
     end
 
     assert_redirected_to interview_path(assigns(:interview))
@@ -35,7 +35,7 @@ class InterviewsControllerTest < ActionController::TestCase
   end
 
   test "should update interview" do
-    patch :update, id: @interview, interview: { thank_you: @interview.thank_you, type: @interview.type }
+    patch :update, id: @interview, interview: { interview_things: @interview.interview_things }
     assert_redirected_to interview_path(assigns(:interview))
   end
 

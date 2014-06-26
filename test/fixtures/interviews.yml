@@ -1,9 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  type: 
-  thank_you: false
+  interview_things: MyString
 
 two:
-  type: 
-  thank_you: false
+  interview_things: MyString

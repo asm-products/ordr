@@ -1,10 +1,6 @@
 class Interview
   include Mongoid::Document
-  include Mongoid::Paranoia
-  include Mongoid::Timestamps
+  field :interview_things, type: String
 
-  field :type
-  field :thank_you, type: Mongoid::Boolean
-
-  belongs_to :job
+  embedded_in :job
 end

@@ -1,12 +1,6 @@
 class Research
   include Mongoid::Document
-  include Mongoid::Paranoia
-  include Mongoid::Timestamps
+  field :research_things, type: String
 
-  field :values
-  field :salary
-  field :location
-  field :notes
-
-  belongs_to :job
+  embedded_in :job
 end

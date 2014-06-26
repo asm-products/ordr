@@ -18,7 +18,7 @@ class NetworksControllerTest < ActionController::TestCase
 
   test "should create network" do
     assert_difference('Network.count') do
-      post :create, network: { contact: @network.contact, notes: @network.notes }
+      post :create, network: { network_things: @network.network_things }
     end
 
     assert_redirected_to network_path(assigns(:network))
@@ -35,7 +35,7 @@ class NetworksControllerTest < ActionController::TestCase
   end
 
   test "should update network" do
-    patch :update, id: @network, network: { contact: @network.contact, notes: @network.notes }
+    patch :update, id: @network, network: { network_things: @network.network_things }
     assert_redirected_to network_path(assigns(:network))
   end
 
