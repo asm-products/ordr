@@ -48,7 +48,7 @@ private
     end
     if user && user.authenticate(params[:password])
       session[:user] = user.id.to_s
-      redirect_to jobs_path, notice: t('session.messages.returning_user.email', email: user.email)
+      redirect_to jobs_path, notice: t('session.messages.returning_user.email', user: user.email)
     else
       flash[:alert] = t('session.messages.failed_login.email')
       render "sessions/new"

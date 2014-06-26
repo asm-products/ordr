@@ -20,7 +20,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  app_title: "Ordr me"
+  app_title: "Ordr"
   general_errors:
     not_in_database: "%{thing} not found in database."
   session:
