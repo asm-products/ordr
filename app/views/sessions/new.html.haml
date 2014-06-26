@@ -1,5 +1,5 @@
 %h1
-  Sessions#new
+  =I18n.t('app_title')
 %p#notice
   = alert
   = notice
@@ -7,17 +7,17 @@
 
 - if current_user
   = link_to "Profile", user_path(current_user)
-  = link_to "Sign out", "logout"
+  = link_to I18n.t('session.new_session.sign_out'), "logout"
 - unless current_user
   = form_tag do
-    =label_tag :email
+    =label_tag :email, I18n.t('user.email')
     =text_field_tag :email
     <br/>
-    =label_tag :password
+    =label_tag :password, I18n.t('user.password')
     =password_field_tag :password
     <br/>
-    =submit_tag "Sign in"
+    =submit_tag I18n.t('session.new_session.sign_in')
   %div#create_pw
-    = link_to "Create a username and password", new_user_path
+    = link_to I18n.t('session.new_session.sign_up'), new_user_path
   %div#linkedin
     = link_to "Sign in with linkedin", "/auth/linkedin"

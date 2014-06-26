@@ -1,5 +1,8 @@
 class Authentication
   include Mongoid::Document
+  include Mongoid::Paranoia
+  include Mongoid::Timestamps
+  
   field :provider, type: String
   field :uid, type: String
   validates_presence_of :provider, :uid

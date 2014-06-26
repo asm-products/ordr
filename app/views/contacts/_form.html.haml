@@ -1,0 +1,31 @@
+= form_for([@job, @contactable, @contact]) do |f|
+  - if @contact.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@contact.errors.count, "error")
+        prohibited this contact from being saved:
+      %ul
+        - @contact.errors.full_messages.each do |message|
+          %li= message
+  .field
+    = f.label :name
+    %br/
+    = f.text_field :name
+  .field
+    = f.label :email
+    %br/
+    = f.text_field :email
+    .field
+    = f.label :company
+    %br/
+    = f.text_field :company
+    .field
+    = f.label :phone
+    %br/
+    = f.text_field :phone
+    .field
+    = f.label :linkedin_url
+    %br/
+    = f.text_field :linkedin_url
+  .action
+    = f.submit "Submit to be Approved"

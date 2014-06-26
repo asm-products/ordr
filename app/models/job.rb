@@ -14,15 +14,16 @@ class Job
   embeds_one :research
   embeds_one :resume
   embeds_one :job_application
-
+  has_many :contacts, as: :contactable
+  belongs_to :user
   accepts_nested_attributes_for :research, :networks, :resume, :job_application, :interviews
+  before_create :initialize_job
 
-
-   def initialize_job
-     self.research = self.create_research
-     self.job_application = self.create_job_application
-     self.resume = self.create_resume
-     self.networks << self.networks.create
-     self.interviews << self.interviews.create
+  def initialize_job
+    self.research = self.create_research
+    self.job_application = self.create_job_application
+    self.resume = self.create_resume
+    self.networks << self.networks.create
+    self.interviews << self.interviews.create
    end
 end
