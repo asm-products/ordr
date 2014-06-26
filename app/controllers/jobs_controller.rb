@@ -1,6 +1,6 @@
 class JobsController < ApplicationController
-  before_action :set_job, only: [:show, :edit, :update, :destroy]
   before_filter :check_authorization
+  before_action :set_job, except: [:index, :new, :create]
 
   # GET /jobs
   # GET /jobs.json
@@ -13,6 +13,12 @@ class JobsController < ApplicationController
   def show
     @contactable = @job
     @contacts = @job.contacts
+
+    @research = @job.research
+    @networks = @job.networks
+    @resume = @job.resume
+    @job_application = @job.job_application
+    @interviews = @job.interviews
   end
 
   # GET /jobs/new
@@ -64,15 +70,22 @@ class JobsController < ApplicationController
     end
   end
 
+  def research
+    render 'jobs/research_view', locals: {research: @job.research}
+  end
+
+  def network
+    render 'jobs/network_view', locals: {networks: @job.networks}
+  end
+
 private
   # Use callbacks to share common setup or constraints between actions.
   def set_job
     @job = Job.find(params[:id])
   end
 
-  # Never trust parameters from the scary internet, only allow the white list through.
   def job_params
-    params.require(:job).permit(:company, :position, :link, :contact)
+    params.require(:job).permit!
   end
 
   def check_authorization

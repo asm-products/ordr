@@ -8,4 +8,7 @@
   %body
     = notice
     = alert
-    = yield
+    %div#list
+      = yield
+    %div#step
+      = yield :substep
