@@ -1,0 +1,18 @@
+<%= render @job %>
+
+<% content_for :substep do %>
+  <p>
+    <strong>Company Mission:</strong>
+    <%= research.company_mission %>
+  </p>
+
+  <p>
+    <strong>Company Goals</strong>
+    <%= research.company_goals %>
+  </p>
+
+  <p>
+    <strong>Company Products or Services</strong>
+    <%= research.current_projects %>
+  </p>
+<% end %>

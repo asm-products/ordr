@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :jobs
+  resources :jobs do
+    get 'research', on: :member
+    get 'network', on: :member
+  end
+
   root 'sessions#new'
   resources :users, only: [:new, :create, :show]
 

@@ -1,6 +1,6 @@
 class JobsController < ApplicationController
   before_filter :check_authorization
-  before_action :set_job, only: [:show, :edit, :update, :destroy]
+  before_action :set_job, except: [:index, :new, :create]
 
   # GET /jobs
   # GET /jobs.json
@@ -68,6 +68,14 @@ class JobsController < ApplicationController
       format.html { redirect_to jobs_url, notice: 'Job was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def research
+    render 'jobs/research_view', locals: {research: @job.research}
+  end
+
+  def network
+    render 'jobs/network_view', locals: {networks: @job.networks}
   end
 
 private
