@@ -13,8 +13,12 @@
 
   <div class="field">
     <%= f.fields_for :research do |r| %>
-      <%= r.label :research_things %><br>
-      <%= r.text_field :research_things %>
+      <%= r.label :company_mission %><br>
+      <%= r.text_field :company_mission %><br>
+      <%= r.label :company_goals %><br>
+      <%= r.text_field :company_goals %><br>
+      <%= r.label :current_projects %>
+      <%= r.text_field :current_projects %>
   </div>
     <% end %>
   <div class="actions">

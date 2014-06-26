@@ -11,6 +11,10 @@ class JobsController < ApplicationController
   # GET /jobs/1.json
   def show
     @research = @job.research
+    @networks = @job.networks
+    @resume = @job.resume
+    @job_application = @job.job_application
+    @interviews = @job.interviews
   end
 
   # GET /jobs/new

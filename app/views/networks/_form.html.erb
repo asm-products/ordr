@@ -1,10 +1,10 @@
-<%= form_for(@network) do |f| %>
-  <% if @network.errors.any? %>
+<%= form_for(@job) do |f| %>
+  <% if @job.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@network.errors.count, "error") %> prohibited this network from being saved:</h2>
+      <h2><%= pluralize(@job.errors.count, "error") %> prohibited this network from being saved:</h2>
 
       <ul>
-      <% @network.errors.full_messages.each do |message| %>
+      <% @job.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -12,8 +12,9 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :network_things %><br>
-    <%= f.text_field :network_things %>
+    <%= f.fields_for :networks %>
+    <%= f.label :date %><br>
+    <%= f.text_field :date %>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -1,9 +1,12 @@
 class Job
   include Mongoid::Document
+  include Mongoid::Paranoia
+  include Mongoid::Timestamps
   field :title, type: String
   field :url, type: String
   field :company_name, type: String
   field :due_date, type: DateTime
+  field :type, type: String
   field :done, type: Mongoid::Boolean
 
   embeds_many :interviews

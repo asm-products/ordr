@@ -1,10 +1,10 @@
-<%= form_for(@resume) do |f| %>
-  <% if @resume.errors.any? %>
+<%= form_for(@job) do |f| %>
+  <% if @job.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@resume.errors.count, "error") %> prohibited this resume from being saved:</h2>
+      <h2><%= pluralize(@job.errors.count, "error") %> prohibited this resume from being saved:</h2>
 
       <ul>
-      <% @resume.errors.full_messages.each do |message| %>
+      <% @job.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -12,8 +12,19 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :resume_things %><br>
-    <%= f.text_field :resume_things %>
+    <%= f.fields_for :resume do |d|%>
+    <%= d.label :resume %><br>
+    <%= d.check_box :resume %><br>
+    <%= d.label :cover_letter %><br>
+    <%= d.check_box :cover_letter %><br>
+    <%= d.label :portfolio %><br>
+    <%= d.check_box :portfolio %><br>
+    <%= d.label :certifications %><br>
+    <%= d.check_box :certifications %><br>
+    <%= d.label :references %><br>
+    <%= d.check_box :references %><br>
+    <%= d.label :recommendations %><br>
+    <%= d.check_box :recommendations %><br>
   </div>
   <div class="actions">
     <%= f.submit %>
