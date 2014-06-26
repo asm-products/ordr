@@ -1,0 +1,14 @@
+= notice
+%p
+  - if current_user.name
+    = "Hello, " + current_user.name
+  - else
+    = "Logged in as " + current_user.email
+
+%p
+  You sign in using:
+  %ul.authentications
+    - if current_user.password_digest
+      %li email and password
+    - current_user.authentications.each do |auth|
+      %li= auth.provider

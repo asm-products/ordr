@@ -5,7 +5,10 @@ class Writing
 
   field :resume, type: Mongoid::Boolean
   field :cover_letter, type: Mongoid::Boolean
-  field :notes
+
+
+  has_many :notes, as: :notable
+  has_many :contacts, as: :contactable
 
   belongs_to :job
 end

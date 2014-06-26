@@ -1,0 +1,19 @@
+= form_for @user do |f|
+  - if @user.errors.any?
+    %div.error.alert-bad
+      Form is invalid
+      %ul
+      - @user.errors.full_messages.each do |message|
+        %li
+          = message
+
+  = f.label :email, t('user.email')
+  = f.email_field :email
+  <br/>
+  = f.label :password, I18n.t('user.password')
+  = f.password_field :password
+  <br/>
+  = f.label :password_confirmation, I18n.t('user.password_confirmation')
+  = f.password_field :password_confirmation
+  <br/>
+  = f.submit I18n.t('session.new_session.sign_up')

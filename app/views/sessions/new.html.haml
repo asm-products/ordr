@@ -1,0 +1,17 @@
+
+- if current_user
+  = link_to "Profile", user_path(current_user)
+  = link_to I18n.t('session.new_session.sign_out'), "logout"
+- unless current_user
+  = form_tag do
+    =label_tag :email, I18n.t('user.email')
+    =text_field_tag :email
+    <br/>
+    =label_tag :password, I18n.t('user.password')
+    =password_field_tag :password
+    <br/>
+    =submit_tag I18n.t('session.new_session.sign_in')
+  %button#create_pw
+    = link_to I18n.t('session.new_session.sign_up'), new_user_path
+  %button#linkedin
+    = link_to "Sign in with linkedin", "/auth/linkedin"
