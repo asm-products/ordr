@@ -20,4 +20,29 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  app_title: "Ordr"
+  general_errors:
+    not_in_database: "%{thing} not found in database."
+  session:
+    new_session:
+      sign_in: "Sign in"
+      sign_out: "Sign out"
+      sign_up: "Sign up"
+    messages:
+      failed_login:
+        email: "Invalid email address or password!"
+        omniauth: "In order to log you in, we need permission to access your account."
+      failed_account_creation: "We're sorry, there was a problem with creating your account."
+      logout: "Your account has been logged out."
+      new_user:
+        email: "Thank you for signing up with %{user}."
+        omniauth: "Hello, %{user}! Thanks for signing up with %{provider}."
+      returning_user:
+        email: "Signed in with %{user}."
+        omniauth: "Welcome back, %{user}. You have signed in with your %{provider} account."
+      unauthorized: "You are not authorized to perform that action."
+  user:
+    email: "Email address: "
+    password: "Password: "
+    password_confirmation: "Confirm password: "
+  navigation:
