@@ -12,4 +12,4 @@ amazon = Job.create(user: john, company_name: "Amazon", title: "Mobile App Softw
 google = Job.create(user: john, company_name: "Google", title: "Junior Developer", url: "www.google.com/about/careers/", done: false, type: "Jr Dev")
 
 amazon.update_attributes(research: Research.new(company_mission: "Hardworking, Quick thinking, and Team Players", company_goals: "To take over the internet", current_projects: "Phones and Drones"))
-amazon.update_attributes(networks: Network.new(date: "August 4th 3:30pm"))
+amazon.update_attributes(job_application: JobApplication.new(sent: true))

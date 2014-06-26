@@ -1,10 +1,10 @@
-<%= form_for(@interview) do |f| %>
-  <% if @interview.errors.any? %>
+<%= form_for(@job) do |f| %>
+  <% if @job.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@interview.errors.count, "error") %> prohibited this interview from being saved:</h2>
+      <h2><%= pluralize(@job.errors.count, "error") %> prohibited this interview from being saved:</h2>
 
       <ul>
-      <% @interview.errors.full_messages.each do |message| %>
+      <% @job.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -12,8 +12,12 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :interview_things %><br>
-    <%= f.text_field :interview_things %>
+    <%= f.fields_for :interviews do |i| %>
+      <%= i.label :type %><br>
+      <%= i.text_field :type %>
+      <%= i.label :thank_you %>
+      <%= i.check_box :thank_you %>
+    <% end %>
   </div>
   <div class="actions">
     <%= f.submit %>

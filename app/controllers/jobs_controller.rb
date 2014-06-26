@@ -1,6 +1,7 @@
 class JobsController < ApplicationController
   before_filter :check_authorization
-  before_action :set_job, except: [:index, :new, :create]
+  before_action :set_job, only: [:show, :edit, :update, :destroy, :new_network, :new_interview]
+
 
   # GET /jobs
   # GET /jobs.json
@@ -70,12 +71,22 @@ class JobsController < ApplicationController
     end
   end
 
+
   def research
     render 'jobs/research_view', locals: {research: @job.research}
   end
 
   def network
     render 'jobs/network_view', locals: {networks: @job.networks}
+  end
+  def new_network
+    @job.networks.create
+    redirect_to @job
+  end
+
+  def new_interview
+    @job.interviews.create
+    redirect_to @job
   end
 
 private

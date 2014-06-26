@@ -1,8 +1,72 @@
-<%= render @job %>
 
-<% content_for :substep do %>
-  Click a step to view more info
-<% end %>
+<p>
+  <strong>Title:</strong>
+  <%= @job.title %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @job.url %>
+</p>
+
+<p>
+  <strong>Company name:</strong>
+  <%= @job.company_name %>
+</p>
+
+<p>
+  <strong>How did you find this job?</strong>
+  <%= @job.type %>
+</p>
+
+<p>
+  <strong>Due date:</strong>
+  <%= @job.due_date %>
+</p>
+
+<p>
+  <strong>Done:</strong>
+  <% @job.done %>
+</p>
+
+
+<p>
+  <strong>Research:</strong>
+  <%= render "researches/show" %>
+</p>
+
+<p>
+  <strong>Edit Research:</strong>
+  <%= render "researches/edit" %>
+</p>
+
+<p>
+  <%= render "networks/networks" %>
+</p>
+
+<p>
+  <strong>Add a network!!!!!!!!!!</strong>
+  <%= render "networks/edit" %>
+
+<p>
+  <strong>Prepare Resume:</strong>
+  <%= render "resumes/edit" %>
+</p>
+
+<p>
+  <strong>Have you applied?</strong>
+  <%= render "job_applications/edit" %>
+</p>
+
+<p>
+  <%= render "interviews/interviews" %>
+</p>
+
+<p>
+  <strong>Add an Interview</strong>
+  <%= render "interviews/edit" %>
+</p>
+
 
 <%= link_to 'Edit', edit_job_path(@job) %> |
 <%= link_to 'Back', jobs_path %>
