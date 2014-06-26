@@ -3,11 +3,12 @@ class Research
   include Mongoid::Paranoia
   include Mongoid::Timestamps
 
-  field :values
-  field :salary
-  field :location
+  field :company_mission, type: String
+  field :company_goals, type: String
+  field :current_projects, type: String
+  field :done, type: Mongoid::Boolean
 
   has_many :notes, as: :notable
   has_many :contacts, as: :contactable
-  belongs_to :job
+  embedded_in :job
 end

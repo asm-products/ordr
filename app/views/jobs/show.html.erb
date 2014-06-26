@@ -1,0 +1,76 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @job.title %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @job.url %>
+</p>
+
+<p>
+  <strong>Company name:</strong>
+  <%= @job.company_name %>
+</p>
+
+<p>
+  <strong>How did you find this job?</strong>
+  <%= @job.type %>
+</p>
+
+<p>
+  <strong>Due date:</strong>
+  <%= @job.due_date %>
+</p>
+
+<p>
+  <strong>Done:</strong>
+  <% @job.done %>
+</p>
+
+
+<p>
+  <strong>Research:</strong>
+  <%= render "researches/show" %>
+</p>
+
+<p>
+  <strong>Edit Research:</strong>
+  <%= render "researches/edit" %>
+</p>
+
+<p>
+  <strong>Networking:</strong>
+  <% @networks.each do |n| %>
+    <%= n.date %><br>
+      <%= form_for[@job, n] do |f| %>
+        <strong>Edit Networking:</strong>
+        <%= f.label :date  %><br>
+        <%= f.text_field :date %>
+    <% end %>
+  <% end %>
+</p>
+
+<p>
+  <strong>Prepare Resume:</strong>
+  <%= render "resumes/edit" %>
+</p>
+
+<p>
+  <strong>Time to Apply</strong>
+  <%= render "job_applications/edit" %>
+</p>
+
+
+<p>
+  <% @interviews.each do |i| %>
+  <%= i.name %>
+    <%= form_for[@job, i] do |f| %>
+  <% end %>
+  <% end %>
+</p>
+
+<%= link_to 'Edit', edit_job_path(@job) %> |
+<%= link_to 'Back', jobs_path %>

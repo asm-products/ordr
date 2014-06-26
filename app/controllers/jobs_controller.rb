@@ -13,6 +13,12 @@ class JobsController < ApplicationController
   def show
     @contactable = @job
     @contacts = @job.contacts
+
+    @research = @job.research
+    @networks = @job.networks
+    @resume = @job.resume
+    @job_application = @job.job_application
+    @interviews = @job.interviews
   end
 
   # GET /jobs/new
@@ -29,6 +35,7 @@ class JobsController < ApplicationController
   def create
     @job = Job.new(job_params)
     @job.user = current_user
+    @job.initialize_job
     respond_to do |format|
       if @job.save
         format.html { redirect_to @job, notice: 'Job was successfully created.' }
@@ -70,9 +77,8 @@ private
     @job = Job.find(params[:id])
   end
 
-  # Never trust parameters from the scary internet, only allow the white list through.
   def job_params
-    params.require(:job).permit(:company, :postion, :link, :contact)
+    params.require(:job).permit!
   end
 
   def check_authorization
