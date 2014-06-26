@@ -22,16 +22,7 @@
     - @research.contacts.each do |contact|
       %tr
         %td
-          Name: #{contact.name}
-        %td
-          Company:  #{contact.company}
-        %td
-          Email:  #{contact.email}
-        %td
-          Phone: #{contact.phone}
-        %td
-          Linkedin Url: #{contact.linkedin_url}
-        %td= link_to 'Edit', edit_job_research_contact_path(@job, @research, contact)
+          =link_to contact.name, edit_job_research_contact_path(@job, @research, contact)
         %td= link_to 'Delete', job_research_note_path(@job, @research, contact), method: :delete, data: { confirm: 'Are you sure?' }
     - @research.notes.each do |note|
       %tr

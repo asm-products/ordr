@@ -11,7 +11,6 @@ class NetworksController < ApplicationController
   # GET /networks/1
   # GET /networks/1.json
   def show
-    redirect_to job_networks_path(@job, @networks)
     @contactable = @network
     @contact = @network.contacts
     @notable = @network
@@ -48,7 +47,7 @@ class NetworksController < ApplicationController
   def update
     respond_to do |format|
       if @network.update(network_params)
-        format.html { redirect_to @job, notice: 'Network was successfully updated.' }
+        format.html { redirect_to job_networks_path(@job), notice: 'Network was successfully updated.' }
         format.json { render :show, status: :ok, location: @job }
       else
         format.html { render :edit }
@@ -78,6 +77,6 @@ class NetworksController < ApplicationController
     end
     # Never trust parameters from the scary internet, only allow the white list through.
     def network_params
-      params.require(:network).permit(:contact, :note)
+      params.require(:network).permit(:date, :time)
     end
 end

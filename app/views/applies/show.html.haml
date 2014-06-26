@@ -17,16 +17,7 @@
     - @apply.contacts.each do |contact|
       %tr
         %td
-          Name: #{contact.name}
-        %td
-          Company:  #{contact.company}
-        %td
-          Email:  #{contact.email}
-        %td
-          Phone: #{contact.phone}
-        %td
-          Linkedin Url: #{contact.linkedin_url}
-        %td= link_to 'Edit', edit_job_apply_contact_path(@job, @apply, contact)
+          =link_to contact.name, edit_job_apply_contact_path(@job, @apply, contact)
         %td= link_to 'Delete', job_apply_note_path(@job, @apply, contact), method: :delete, data: { confirm: 'Are you sure?' }
     - @apply.notes.each do |note|
       %tr

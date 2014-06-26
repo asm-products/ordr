@@ -33,7 +33,7 @@ class WritingsController < ApplicationController
 
     respond_to do |format|
       if @writing.save
-        format.html { redirect_to @job, notice: 'Writing was successfully created.' }
+        format.html { redirect_to job_writing_path(@job, @writing), notice: 'Writing was successfully created.' }
         format.json { render :show, status: :created, location: @job }
       else
         format.html { render :new }
@@ -47,7 +47,7 @@ class WritingsController < ApplicationController
   def update
     respond_to do |format|
       if @writing.update(writing_params)
-        format.html { redirect_to @job, notice: 'Writing was successfully updated.' }
+        format.html { redirect_to job_writing_path(@job, @writing), notice: 'Writing was successfully updated.' }
         format.json { render :show, status: :ok, location: @job }
       else
         format.html { render :edit }

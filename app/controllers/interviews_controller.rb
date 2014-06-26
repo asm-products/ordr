@@ -47,7 +47,7 @@ class InterviewsController < ApplicationController
   def update
     respond_to do |format|
       if @interview.update(interview_params)
-        format.html { redirect_to @job, notice: 'Interview was successfully updated.' }
+        format.html { redirect_to job_interviews_path(@job), notice: 'Interview was successfully updated.' }
         format.json { render :show, status: :ok, location: @job }
       else
         format.html { render :edit }
