@@ -1,0 +1,8 @@
+= simple_form_for([@job, @writing]) do |f|
+  = f.error_notification
+  .form-inputs
+    = f.input :resume, input_html: { id: 'jobdocs-resume' }
+    = f.input :cover_letter, input_html: { id: 'jobdocs-coverletter' }
+    = f.input :notes, input_html: { id: 'jobdocs-notes' }
+  .form-actions
+    = f.button :submit, input_html: { id: 'jobdocs-button-submit' }

@@ -1,6 +1,6 @@
 = form_for @user do |f|
   - if @user.errors.any?
-    %div.error
+    %div.error.alert-bad
       Form is invalid
       %ul
       - @user.errors.full_messages.each do |message|

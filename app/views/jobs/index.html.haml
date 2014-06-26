@@ -1,0 +1,58 @@
+%header
+  %h1 Job Entries
+
+- @jobs.each do |job|
+  = link_to job do
+    %section.job_entry_item
+      %div
+        %h2= job.position
+        %h3= job.company
+        %div
+          %h4 % Completed
+      / %div.triangle_right
+      // %p= link_to 'Show', job
+      // %p= link_to 'Edit', edit_job_path(job)
+      // %p= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' }
+
+%button.new_job_button
+  = link_to 'New Job', new_job_path
+
+%div.grid_test
+  %div.alert-bad
+    this is a bad alert
+    %a{href: "#"} x
+
+  %div.alert-good
+    this is a good alert
+    %a{href: "#"} x
+
+%div
+  %button.toolbar_button
+    Back to dashboard
+  %button.secondary_button
+    No
+  %button.new_job_button
+    Add new job entry
+  %button.add_button
+    &
+  %p
+    this is some regular text yo
+%button.add_button
+  &
+
+%header.step_header
+  %div.number
+    %h2 1
+  %h1 Job List
+
+%header.step_title.job_entry_item
+  %div.number_title
+    %h3 1
+  %h2 Job Details
+
+%div.parent
+  %div.toolbar
+  %div.list
+  %div.content
+
+

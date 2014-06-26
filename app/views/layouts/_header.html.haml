@@ -1,0 +1,9 @@
+// Global page header
+
+%header.main_header
+  %a.logo{:href => "#"}
+    = image_tag "order_logo.svg", size: "100"
+  - if current_user
+    = link_to "Sign out", url_for(controller: 'sessions', action: 'destroy')
+  - else
+    = link_to "Sign in", url_for(controller: 'sessions', action: 'new')

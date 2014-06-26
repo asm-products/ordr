@@ -1,0 +1,5 @@
+= simple_form_for([@job, @apply]) do |f|
+  = f.error_notification
+  = f.input :sent, as: :radio_buttons, input_html: { id: 'apply-sent' }
+  = f.input :notes, as: :text, input_html: { id: 'apply-notes' }
+  = f.button :submit, :id => 'apply-button-submit', :class => 'primary_button'

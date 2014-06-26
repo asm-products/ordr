@@ -1,9 +1,3 @@
-%h1
-  =I18n.t('app_title')
-%p#notice
-  = alert
-  = notice
-
 
 - if current_user
   = link_to "Profile", user_path(current_user)
@@ -17,7 +11,7 @@
     =password_field_tag :password
     <br/>
     =submit_tag I18n.t('session.new_session.sign_in')
-  %div#create_pw
+  %button#create_pw
     = link_to I18n.t('session.new_session.sign_up'), new_user_path
-  %div#linkedin
+  %button#linkedin
     = link_to "Sign in with linkedin", "/auth/linkedin"

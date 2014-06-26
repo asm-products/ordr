@@ -1,0 +1,63 @@
+// Our layout Sass files should contain no more information
+// then is needed to assemble a series of modules and elements.
+// Imagine a sketch with gray boxes in the view,
+// this is the document that creates that structure.
+// Elements are never defined and modules are never engineered here.
+
+
+//grid
+//header
+//footer
+
+.body_container
+  @include outer-container
+  // div
+  //   @include span-columns(12)
+
+.toolbar
+  background: red
+  height: 40em
+  display: inline-block
+  @include span-columns(2)
+
+.list
+  background: #f4f4f4
+  height: 40em
+  display: inline-block
+  @include span-columns(3)
+
+.content
+  @include span-columns(7)
+  background: pink
+  height: 40em
+  display: inline-block
+  @include media($tablet)
+    background: green
+  @include media($mobile)
+    background: black
+
+
+
+
+// .parent2
+//   @include outer-container
+//   // div
+//   //   @include span-columns(12)
+
+// .toolbar2
+//   background: red
+//   height: 10em
+//   display: inline-block
+//   @include span-columns(2)
+
+// .list2
+//   background: blue
+//   height: 10em
+//   display: inline-block
+//   @include span-columns(3)
+
+// .content2
+//   background: pink
+//   height: 10em
+//   display: inline-block
+//   @include span-columns(6)

@@ -1,3 +1,4 @@
+
 class JobsController < ApplicationController
   before_filter :check_authorization
   before_action :set_job, except: [:index, :new, :create]
