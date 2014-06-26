@@ -32,7 +32,7 @@ class ResearchesController < ApplicationController
     @research = @job.create_research(research_params)
     respond_to do |format|
       if @research.save
-        format.html { redirect_to @job, notice: "Research was successfully created" }
+        format.html { redirect_to job_resrearch_path(@job, @research), notice: "Research was successfully created" }
         format.json { render :show, status: :created, location: @job }
       else
         format.html {render :new }
@@ -46,7 +46,7 @@ class ResearchesController < ApplicationController
   def update
     respond_to do |format|
       if @research.update(research_params)
-        format.html { redirect_to @job, notice: 'Research was successfully updated.' }
+        format.html { redirect_to job_research_path(@job, @research), notice: 'Research was successfully updated.' }
         format.json { render :show, status: :ok, location: @job }
       else
         format.html { render :edit }
