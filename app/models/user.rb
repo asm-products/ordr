@@ -8,6 +8,7 @@ class User
   field :email, type: String
   field :password_digest, type: String
   has_many :authentications
+  has_many :jobs
 
   def add_provider(auth_hash)
     unless has_provider(auth_hash["provider"])

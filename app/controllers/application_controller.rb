@@ -3,9 +3,14 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  def authorize
-    redirect_to login_path, alert: t("session.messages.unauthorized") unless current_user
+  def authorize(user = nil)
+    if user
+      redirect_to login_path, alert: t("session.messages.unauthorized") unless current_user == user
+    else
+      redirect_to login_path, alert: t("session.messages.unauthorized") unless current_user
+    end
   end
+  helper_method :authorize
 
 private
   def current_user

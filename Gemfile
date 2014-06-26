@@ -12,7 +12,7 @@ gem 'mongoid-paranoia', github: 'simi/mongoid-paranoia'
 gem 'omniauth'
 gem 'omniauth-linkedin'
 gem 'puma'
-gem 'rails', '4.1.1'
+gem 'rails', '~> 4.1.1'
 gem 'sass-rails', '~> 4.0.3'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'simple_form'
