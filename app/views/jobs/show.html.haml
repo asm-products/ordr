@@ -3,11 +3,11 @@
   %strong Company:
   = @job.company
 %p
-  %strong Postion:
-  = @job.postion
+  %strong Position:
+  = @job.position
 %p
   %strong Link to Post:
-  =@job.link
+  = link_to "Position Link", "http://#{@job.link}"
 
 =link_to 'Edit', edit_job_path(@job)
 |

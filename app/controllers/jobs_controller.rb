@@ -72,7 +72,7 @@ private
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def job_params
-    params.require(:job).permit(:company, :postion, :link, :contact)
+    params.require(:job).permit(:company, :position, :link, :contact)
   end
 
   def check_authorization
