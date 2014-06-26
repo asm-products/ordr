@@ -8,12 +8,15 @@
   %body
     %header.main-header
       = render 'layouts/header'
-    %div
-      .alert-bad
-        = alert
-      .alert-good
-        = notice
+
+    // TODO: fix this (hide when no alert)
+    .alert-bad
+      = alert
+    .alert-good
+      = notice
+
     %aside
       = render 'layouts/toolbar'
     %main
       = yield
+    %footer
