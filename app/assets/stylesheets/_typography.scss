@@ -1,5 +1,51 @@
 @import "typography/web_fonts";
 
-body {
-  font-family: 'Lato';
+$font_size: 16px;
+
+html {
+  font: em($font_size, 16) 'Lato';
+  line-height: baseline($font_size);
+  color: $primary_text_color;
+}
+
+h1 {
+  font-family: Oswald;
+  font-weight: 500;
+  font-size: 1.6em;
+  text-transform: uppercase;
+  letter-spacing: .02em;
+}
+
+h2 {
+  font-family: lato;
+  font-weight: 700;
+  font-size: 1.1em;
+  letter-spacing: .02em;
+  color: $primary_text_color_light;
+}
+
+h3 {
+  font-family: lato;
+  font-weight: 500;
+  font-size: .75em;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+  color: $primary_text_color_lighter;
+}
+
+h4 {
+  font-family: lato;
+  font-weight: 500;
+  font-size: .55em;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+  color: $bravo_color;
+  margin-top: .75em;
+}
+
+input, textarea {
+  &:not([type='submit']) {
+    font-family: lato;
+    font-size: $font-size;
+  }
 }

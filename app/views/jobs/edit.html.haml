@@ -1,6 +1,30 @@
+<<<<<<< HEAD
 %header
   %div 1
   %h1 Job Details
 
 =render 'form'
 =button_to 'back', @job, :class => 'secondary_button'
+%section.form=render 'form'
+
+%label Text Area
+%textarea
+
+%label Email
+%input{:type => 'email'}
+
+%label Password
+%input{:type => 'password'}
+
+%label Phone
+%input{:type => 'phone'}
+
+%label Date
+%input{:type => 'date'}
+
+%label URL
+%input{:type => 'url', :placeholder => 'heyheyhey.com'}
+
+
+=link_to 'Show', @job |
+=link_to 'Back', jobs_path

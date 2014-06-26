@@ -7,6 +7,7 @@
       %ul
         - @job.errors.full_messages.each do |message|
           %li= message
+
   // FORM:
   = f.input :position, input_html: { id: 'job-position' }
   = f.input :link, input_html: { :type => 'url', id: 'job-url' }
@@ -15,11 +16,10 @@
   %label{:for => 'apply-by'} Apply by:
   %input{:type => 'date', :name => 'apply-by'}
 
-  %br
   %label{:for => 'found-source'} How did you find this job?
-  %br
+
   %input{:type => 'radio', :name => 'found-source', :value => 'inperson'} In person
-  %br
+
   %input{:type => 'radio', :name => 'found-source', :value => 'online'} Online
-  %br
+
   = f.button :submit, input_html: { id: 'job-button-submit' }
