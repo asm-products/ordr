@@ -134,6 +134,9 @@ GEM
     omniauth-oauth (1.0.1)
       oauth
       omniauth (~> 1.0)
+    neat (1.5.1)
+      bourbon (>= 3.1)
+      sass (~> 3.2.19)
     optionable (0.2.0)
     origin (2.1.1)
     polyglot (0.3.5)

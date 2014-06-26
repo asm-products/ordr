@@ -18,6 +18,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'simple_form'
 gem 'uglifier', '>= 1.3.0'
 gem 'bourbon'
+gem 'neat', '>=1.5.1'
 
 group :development do
   gem 'eefgilm'

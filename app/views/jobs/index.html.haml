@@ -17,13 +17,14 @@
 %button.new_job_button
   = link_to 'New Job', new_job_path
 
-%div.alert-bad
-  this is a bad alert
-  %a{href: "#"} x
+%div.grid_test
+  %div.alert-bad
+    this is a bad alert
+    %a{href: "#"} x
 
-%div.alert-good
-  this is a good alert
-  %a{href: "#"} x
+  %div.alert-good
+    this is a good alert
+    %a{href: "#"} x
 
 %div
   %button.toolbar_button
@@ -48,3 +49,10 @@
   %div.number_title
     %h3 1
   %h2 Job Details
+
+%div.parent
+  %div.toolbar
+  %div.list
+  %div.content
+
+
