@@ -1,4 +1,15 @@
-%h1 Listing networks
+%header
+  %div 3
+  %h1 Networking
+  %a
+  %a
+  %a
+
+%p Do you plan to meet with someone to talk about this job?
+
+= button_to 'Yes', job_networks_path(@job, Network.new, :network => {job_id: @job.id}), :method => :post
+
+
 %table
   %thead
     %tr
@@ -16,13 +27,13 @@
                   %td
                     Name: #{contact.name}
                   %td
-                    Company:  #{contact.company}
+                    Company: #{contact.company}
                   %td
-                    Email:  #{contact.email}
+                    Email: #{contact.email}
                   %td
                     Phone: #{contact.phone}
                   %td
-                    Linkedin Url: #{contact.linkedin_url}
+                    Linkedin URL: #{contact.linkedin_url}
                   %td= link_to 'Edit', edit_job_network_contact_path(@job, network, contact)
                   %td= link_to 'Delete', job_network_contact_path(@job, network, contact), method: :delete, data: { confirm: 'Are you sure?' }
               - network.notes.each do |note|
@@ -33,4 +44,3 @@
                   %td= link_to 'Delete', job_network_note_path(@job, network, note), method: :delete, data: { confirm: 'Are you sure?' }
                   %td= link_to 'Edit', edit_job_network_path(@job, network)
 
-= button_to 'New Network', job_networks_path(@job, Network.new, :network => {job_id: @job.id}), :method => :post

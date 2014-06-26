@@ -1,9 +1,8 @@
-%h1
-  Sessions#new
 %p#notice
-  = alert
-  = notice
-
+  .alert-bad
+    = alert
+  .alert-good
+    = notice
 
 - if current_user
   = link_to "Profile", user_path(current_user)
@@ -17,7 +16,7 @@
     =password_field_tag :password
     <br/>
     =submit_tag "Sign in"
-  %div#create_pw
-    = link_to "Create a username and password", new_user_path
-  %div#linkedin
+  %button#create_pw
+    = link_to "Sign Up", new_user_path
+  %button#linkedin
     = link_to "Sign in with linkedin", "/auth/linkedin"

@@ -2,7 +2,6 @@
   %h1 Job Steps
   %div {{#}}%
 
-<<<<<<< HEAD
 %section
   %h2= @job.position
   %h3= @job.company
@@ -12,27 +11,27 @@
     %span 1
     %p Job Details
     %div
-= link_to new_job_research_path(@job) do
+= link_to job_research_path(job_id: @job.id, id: @job.research.id) do
   %section
     %span 2
     %p Research
     %div
-= link_to new_job_network_path(@job) do
+= link_to job_networks_path(job_id: @job.id) do
   %section
     %span 3
     %p Networking
     %div
-= link_to new_job_writing_path(@job) do
+= link_to job_writing_path(job_id: @job.id, id: @job.writing.id) do
   %section
     %span 4
     %p Job Documents
     %div
-= link_to new_job_apply_path(@job) do
+= link_to job_apply_path(job_id: @job.id, id: @job.apply.id) do
   %section
     %span 5
     %p Apply
     %div
-= link_to new_job_interview_path(@job) do
+= link_to job_interviews_path(job_id: @job.id) do
   %section
     %span 6
     %p Interview
@@ -42,15 +41,13 @@
   %p Close Job Entry
 
 %p#notice= notice
-=======
-= link_to "research show", job_research_path(job_id: @job.id, id: @job.research.id)
 
-= link_to "Add Networking", job_networks_path(job_id: @job.id)
+= button_to "research show", job_research_path(job_id: @job.id, id: @job.research.id)
 
-= link_to "Edit Application", job_writing_path(job_id: @job.id, id: @job.writing.id)
+= button_to "Add Networking", job_networks_path(job_id: @job.id)
 
-= link_to "Apply to Job", job_apply_path(job_id: @job.id, id: @job.apply.id)
+= button_to "Edit Application", job_writing_path(job_id: @job.id, id: @job.writing.id)
 
-= link_to "Add an Interview", job_interviews_path(job_id: @job.id)
+= button_to "Apply to Job", job_apply_path(job_id: @job.id, id: @job.apply.id)
 
->>>>>>> b2423f6c6c9d92bba03e2548f8104fb7a70a40f9
+= button_to "Add an Interview", job_interviews_path(job_id: @job.id)
