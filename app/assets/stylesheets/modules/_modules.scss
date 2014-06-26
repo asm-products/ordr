@@ -6,8 +6,15 @@
 
 //-----Main Header-----
 .main_header {
+  @include flexy();
   background-color: $header_background;
   width: 100%;
+  height: 4em;
+  padding: 1.5em;
+}
+
+.signup {
+  color: $charlie_color;
 }
 
 //------Step Header-----
