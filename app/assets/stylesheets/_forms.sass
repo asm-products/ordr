@@ -1,7 +1,7 @@
 .form
   width: 50%
 
-input
+input, textarea
   outline: none
   &:not([type='submit'])
     width: 100%
@@ -11,8 +11,9 @@ input
     border: 0.2em solid $input_border
     outline: none
     margin-bottom: 1.5em
-  &[type='textarea']
-    height: 5em
+
+textarea
+  height: 5em
 
 \::-webkit-input-placeholder
   color: $golf_color_charlie

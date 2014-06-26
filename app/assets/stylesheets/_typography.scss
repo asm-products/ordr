@@ -43,7 +43,7 @@ h4 {
   margin-top: .75em;
 }
 
-input {
+input, textarea {
   &:not([type='submit']) {
     font-family: lato;
     font-size: $font-size;
