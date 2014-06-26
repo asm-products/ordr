@@ -79,6 +79,10 @@ class JobsController < ApplicationController
     render 'jobs/network_view', locals: {networks: @job.networks}
   end
 
+  def details
+    render 'jobs/details_view', locals: {details: @job}
+  end
+
 private
   # Use callbacks to share common setup or constraints between actions.
   def set_job

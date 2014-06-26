@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :jobs do
+    get 'details', on: :member
     get 'research', on: :member
     get 'network', on: :member
   end
@@ -13,5 +14,4 @@ Rails.application.routes.draw do
   get '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   get 'auth/failure', to: 'sessions#failure'
   get '/logout', to: 'sessions#destroy', as: :logout
-
 end
