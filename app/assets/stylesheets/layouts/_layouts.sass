@@ -16,20 +16,20 @@
 
 .toolbar
   background: red
-  height: 40em
+  @include calc(height, '100vh - 4em')
   display: inline-block
   @include span-columns(2)
 
 .list
   background: #f4f4f4
-  height: 40em
+  @include calc(height, '100vh - 4em')
   display: inline-block
   @include span-columns(3)
 
 .content
   @include span-columns(7)
   background: pink
-  height: 40em
+  @include calc(height, '100vh - 4em')
   display: inline-block
   @include media($tablet)
     background: green
