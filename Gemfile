@@ -17,6 +17,7 @@ gem 'simple_form'
 gem 'spring', group: :development
 gem 'uglifier', '>= 1.3.0'
 gem 'bourbon'
+gem 'neat', '>=1.5.1'
 
 group :development do
   gem 'better_errors'
