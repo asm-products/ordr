@@ -17,7 +17,7 @@ class Job
   has_many :contacts, as: :contactable
   belongs_to :user
   accepts_nested_attributes_for :research, :networks, :resume, :job_application, :interviews
-  before_create :initialize_job
+  after_create :initialize_job
 
   def initialize_job
     self.research = self.create_research
