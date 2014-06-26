@@ -13,6 +13,7 @@ class Job
   has_many :interviews
   has_many :networks
   has_many :contacts, as: :contactable
+  belongs_to :user
   before_create :initialize_job
 
   private
