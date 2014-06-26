@@ -1,28 +1,10 @@
 Rails.application.routes.draw do
-  root 'sessions#new'
-
   resources :jobs do
-    resources :interviews do
-      resources :contacts
-      resources :notes
-    end
-    resources :applies do
-      resources :contacts
-      resources :notes
-    end
-    resources :writings do
-      resources :contacts
-      resources :notes
-    end
-    resources :networks do
-      resources :contacts
-      resources :notes
-    end
-    resources :researches do
-      resources :contacts
-      resources :notes
-    end
+    get 'research', on: :member
+    get 'network', on: :member
   end
+
+  root 'sessions#new'
   resources :users, only: [:new, :create, :show]
 
   get '/login', to: 'sessions#new', as: :login
