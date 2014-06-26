@@ -46,3 +46,29 @@ en:
     password: "Password: "
     password_confirmation: "Confirm password: "
   navigation:
+
+  job:
+    delete: "Close Job Entry"
+    delete_confirmation: "Are you sure you wish to remove this entry?"
+    edit: "Edit Job Information"
+  job_steps:
+    label: "Job Steps"
+    more_info: "Click on any step to view more information."
+    details:
+      label: "Job details"
+      tooltip:
+    research:
+      label: "Research company"
+      tooltip: "Learn about where you want to work"
+    meeting:
+      label: "Networking"
+      tooltip: "Meet with someone to discuss the company"
+    documents:
+      label: "Documents"
+      tooltip: "Write your resume and cover letter"
+    application:
+      label: "Application"
+      tooltip: "You can't get a job without applying for it"
+    interview:
+      label: "Interview"
+      tooltip: "Ace it"
