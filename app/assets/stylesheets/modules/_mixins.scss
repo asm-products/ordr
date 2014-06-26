@@ -33,4 +33,13 @@
 }
 
 
-//-----...-----//
+//-----Flex-----//
+
+@mixin flexy($direction: row, $wrap: nowrap, $content-direction: space-between, $alignment: space-around, $align-items: center) {
+  display: flex;
+  flex-direction: $direction;
+  flex-wrap: $wrap;
+  justify-content: $content-direction;
+  align-content: $alignment;
+  align-items: $align-items;
+}
