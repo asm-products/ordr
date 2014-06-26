@@ -17,13 +17,14 @@
 %button.new_job_button
   = link_to 'New Job', new_job_path
 
-%div.alert-bad
-  this is a bad alert
-  %a{href: "#"} x
+%div.grid_test
+  %div.alert-bad
+    this is a bad alert
+    %a{href: "#"} x
 
-%div.alert-good
-  this is a good alert
-  %a{href: "#"} x
+  %div.alert-good
+    this is a good alert
+    %a{href: "#"} x
 
 %div
   %button.toolbar_button
@@ -49,4 +50,21 @@
     %h3 1
   %h2 Job Details
 
+%div.parent
+  %div.toolbar
+  %div.list
+  %div.content
 
+
+/ %div.parent2
+/   %div.toolbar2
+/   %div.list2
+/   %div.content2
+/ - @jobs.each do |job|
+/   = link_to job do
+/     %section.job_entry_item
+/       %div
+/         %h2= job.position
+/         %h3= job.company
+/         %div
+/           %h4 % Completed
