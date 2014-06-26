@@ -1,11 +1,11 @@
 @import "typography/web_fonts";
 
-$font_size: 16em;
+$font_size: 16px;
 
 html {
   font: em($font_size, 16) 'Lato';
   line-height: baseline($font_size);
-  color: $echo_color;
+  color: $primary_text_color;
 }
 
 h1 {
@@ -13,32 +13,39 @@ h1 {
   font-weight: 500;
   font-size: 1.6em;
   text-transform: uppercase;
-  letter-spacing:.02em;
+  letter-spacing: .02em;
 }
 
 h2 {
   font-family: lato;
   font-weight: 700;
   font-size: 1.1em;
-  letter-spacing:.02em;
-  color: $echo_color_bravo;
+  letter-spacing: .02em;
+  color: $primary_text_color_light;
 }
 
 h3 {
   font-family: lato;
   font-weight: 500;
   font-size: .75em;
-  letter-spacing:.02em;
+  letter-spacing: .02em;
   text-transform: uppercase;
-  color: $echo_color_delta;
+  color: $primary_text_color_lighter;
 }
 
 h4 {
   font-family: lato;
   font-weight: 500;
   font-size: .55em;
-  letter-spacing:.02em;
+  letter-spacing: .02em;
   text-transform: uppercase;
   color: $bravo_color;
   margin-top: .75em;
+}
+
+input {
+  &:not([type='submit']) {
+    font-family: lato;
+    font-size: $font-size;
+  }
 }

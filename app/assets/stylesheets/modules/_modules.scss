@@ -52,7 +52,7 @@
     font-family: Oswald;
     font-weight: 700;
     font-size: .7em;
-    letter-spacing:.02em;
+    letter-spacing: .02em;
     color: $delta_color;
     background: $echo_color;
     border-radius: 50%;
@@ -68,7 +68,7 @@
     font-family: Oswald;
     font-weight: 700;
     font-size: 1em;
-    letter-spacing:.02em;
+    letter-spacing: .02em;
     border-radius: 50%;
     line-height: 215%;
     text-transform: uppercase;
@@ -78,12 +78,6 @@
 //-----Job Entry Item-----
 
 .job_entry_item {
-  // display:flex;
-  // flex-direction: row;
-  // flex-wrap: nowrap;
-  // justify-content: space-between;
-  // align-content: space-around;
-  // align-items: center;
   width: 100%;
   padding: .7em .7em .7em 1.5em;
   background: $golf_color;

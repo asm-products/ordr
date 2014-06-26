@@ -1,4 +1,24 @@
-%h1 Editing job
-=render 'form'
+%section.form=render 'form'
+
+%label Text Area
+%input{:type => 'textarea'}
+
+%label Email
+%input{:type => 'email'}
+
+%label Password
+%input{:type => 'password'}
+
+%label Phone
+%input{:type => 'phone'}
+
+%label Date
+%input{:type => 'date'}
+
+%label URL
+%input{:type => 'url', :placeholder => 'heyheyhey.com'}
+
+
+
 =link_to 'Show', @job |
 =link_to 'Back', jobs_path

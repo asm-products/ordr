@@ -7,11 +7,8 @@
       %ul
         - @job.errors.full_messages.each do |message|
           %li= message
-  .field
-    = f.input :company, input_html: { id: 'job-company' }
-  .field
-    = f.input :position, input_html: { id: 'job-position' }
-  .field
-    = f.input :link, input_html: { :type => 'url', id: 'job-url' }
-    .actions
-      = f.button :submit, input_html: { id: 'job-button-submit' }
+
+  = f.input :company, input_html: { id: 'job-company' }
+  = f.input :position, input_html: { id: 'job-position' }
+  = f.input :link, input_html: { :type => 'url', id: 'job-url' }
+  = f.button :submit, :class => 'primary_button', :id => 'job-button-submit'
