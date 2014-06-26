@@ -33,8 +33,15 @@
     No
   %button.new_job_button
     Add new job entry
-  %button.add_button
-    &
+  %a.tooltip{:href => "#", :title => "Add new contact"}
+    %button.add_button
+      &
+  / %button.add_button
+  /   %a{:data-tooltip => "true", :title => "This is some message"} &
+
+%br
+%br
+
   %p
     this is some regular text yo
 %button.add_button
@@ -45,7 +52,7 @@
     %h2 1
   %h1 Job List
 
-%header.step_title.job_entry_item
+%section.step_title.job_entry_item
   %div.number_title
     %h3 1
   %h2 Job Details
