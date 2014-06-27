@@ -7,7 +7,7 @@ class Research
   field :current_projects, type: String
   field :done, type: Mongoid::Boolean
 
-  has_many :notes, dependent: :delete
-  has_many :contacts, dependent: :delete
+  has_many :notes
+  has_many :contacts
   embedded_in :job
 end
