@@ -9,11 +9,11 @@
     %header.main-header
       = render 'layouts/header'
 
-    // TODO: fix this (hide when no alert)
-    .alert-bad
-      = alert
-    .alert-good
-      = notice
+    - if alert || notice
+      .alert-bad
+        = alert
+      .alert-good
+        = notice
 
     %main
       = render 'layouts/grid'

@@ -1,7 +1,11 @@
 = render @job
 
 - content_for :content do
+  %label URL
   = details.url
+
+  %label
   = details.due_date
+
   = details.type
   = link_to "Edit", url_for({controller: 'jobs', action: 'details_edit'})

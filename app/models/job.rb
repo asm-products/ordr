@@ -28,3 +28,4 @@ class Job
     self.interviews << self.interviews.create
    end
 end
+
