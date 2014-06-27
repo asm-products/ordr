@@ -1,7 +1,7 @@
 
 - if current_user
-  = link_to "Profile", user_path(current_user)
-  = link_to I18n.t('session.new_session.sign_out'), "logout"
+  = link_to "Profile", user_path(current_user), class: 'primary_button'
+  = link_to I18n.t('session.new_session.sign_out'), "logout", class: 'secondary_button'
 - unless current_user
   = form_tag do
     =label_tag :email, I18n.t('user.email')
@@ -10,8 +10,8 @@
     =label_tag :password, I18n.t('user.password')
     =password_field_tag :password
     <br/>
-    =submit_tag I18n.t('session.new_session.sign_in')
-  %button#create_pw
+    =submit_tag I18n.t('session.new_session.sign_in'), class: 'primary_button'
+  %button#create_pw.primary_button
     = link_to I18n.t('session.new_session.sign_up'), new_user_path
-  %button#linkedin
+  %button#linkedin.primary_button
     = link_to "Sign in with linkedin", "/auth/linkedin"
