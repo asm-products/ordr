@@ -1,3 +1,7 @@
-%h1 Edit Note
+%h1 Editing note
+
 = render 'form'
-= link_to 'Back', :back
+
+= link_to 'Show', @note
+\|
+= link_to 'Back', notes_path

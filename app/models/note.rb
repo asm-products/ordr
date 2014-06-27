@@ -4,5 +4,4 @@ class Note
   include Mongoid::Timestamps
 
   field :content, type: String
-  belongs_to :notable, polymorphic: true
 end

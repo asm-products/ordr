@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :notes
+
+  resources :contacts
+
   resources :jobs do
     get :deleted_index, on: :collection
     member do
