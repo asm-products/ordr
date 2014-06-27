@@ -17,11 +17,9 @@
 
 %article.outer_container
   %section.step_content
-    %label
-      Did you get an interview?
-    %p
-      = @job.job_application.sent ? "Sent" : "Not sent"
+    %label Interview type
+    %p= @job.interview.type
+    %label Interview date
+    %p= @job.interview.date
 
-    %label Application date
-    %p
-      = @job.job_application.date
+    -# = link_to "Add an interview", new_interview_job_path, method: :put

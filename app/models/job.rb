@@ -8,7 +8,7 @@ class Job
   field :due_date, type: DateTime
   field :type, type: String
 
-  embeds_many :interviews
+  embeds_one :interview
   embeds_one :network
   embeds_one :research
   embeds_one :resume
@@ -16,7 +16,7 @@ class Job
 
   has_many :contacts, as: :contactable
   belongs_to :user
-  accepts_nested_attributes_for :research, :network, :resume, :job_application, :interviews
+  accepts_nested_attributes_for :research, :network, :resume, :job_application, :interview
   after_create :initialize_job
 
   def initialize_job
@@ -24,6 +24,6 @@ class Job
     self.job_application = self.create_job_application
     self.resume = self.create_resume
     self.network = self.create_network
-    self.interviews.create
+    self.interview = self.create_interview
   end
 end
