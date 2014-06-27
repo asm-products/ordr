@@ -37,8 +37,9 @@
   background: $echo_color
   text-align: center
   line-height: 3em
-  position: sticky
-  bottom: 0
+  position: relative
+  text-transform: uppercase
+  @include calc(top, '100vh - 36.5em')
   & h2
     color: $delta_color
 
