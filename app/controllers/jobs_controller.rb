@@ -55,7 +55,7 @@ class JobsController < ApplicationController
 
   def new_interview
     @job.interviews.create
-    redirect_to @job
+    render 'jobs/content_edit', locals: {step: params['interview']}
   end
 
   def deleted_index
