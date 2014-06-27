@@ -1,0 +1,30 @@
+%header.content_header.outer_container
+  %article.steptitle_grid.steptitle_flex
+    %section.steptitle_width
+      %div.number
+        %h2 1
+      %h1
+        = t('job_steps.details.label')
+    = link_to content_edit_job_path({step: 'details'}) do
+      %button.add_button
+        = image_tag "edit_icon.svg", size: "20"
+    = link_to content_edit_job_path({step: 'details'}) do
+      %button.add_button
+        = image_tag "add_note_icon.svg", size: "20"
+    = link_to content_edit_job_path({step: 'details'}) do
+      %button.add_button
+        = image_tag "add_contact_icon.svg", size: "20"
+
+%section.step_content
+  = form_for @job do |f|
+    = f.label :title
+    = f.text_field :title
+    = f.label :url
+    = f.text_field :url
+    = f.label :due_date
+    = f.date_field :due_date
+    = f.radio_button(:type, 'Person')
+    = f.label :type_person, 'In Person'
+    = f.radio_button(:type, 'Online')
+    = f.label :type_online, 'Online'
+    = f.submit 'Save', { class: 'primary_button' }

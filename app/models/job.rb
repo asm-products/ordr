@@ -7,7 +7,6 @@ class Job
   field :company_name, type: String
   field :due_date, type: DateTime
   field :type, type: String
-  field :done, type: Mongoid::Boolean
 
   embeds_many :interviews
   embeds_many :networks
@@ -26,6 +25,6 @@ class Job
     self.resume = self.create_resume
     self.networks.create
     self.interviews.create
-   end
+  end
 end
 
