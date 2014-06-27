@@ -36,10 +36,34 @@
 //-----Flex-----//
 
 @mixin flexy($direction: row, $wrap: nowrap, $content-direction: space-between, $alignment: space-around, $align-items: center) {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
   display: flex;
+  -webkit-flex-direction: $direction;
+  -moz-flex-direction: $direction;
+  -ms-flex-direction: $direction;
   flex-direction: $direction;
+  -webkit-flex-flow: $wrap $direction;
+  -moz-flex-flow: $wrap $direction;
+  -ms-flex-flow: $wrap $direction;
+  flex-flow: $wrap $direction;
+  -webkit-flex-wrap: $wrap;
+  -moz-flex-wrap: $wrap;
+  -ms-flex-wrap: $wrap;
   flex-wrap: $wrap;
   justify-content: $content-direction;
+  -webkit-justify-content: $content-direction;
+  -moz-justify-content: $content-direction;
+  -ms-justify-content: $content-direction;
+  justify-content: $content-direction;
+  -webkit-align-content: $alignment;
+  -moz-align-content: $alignment;
+  -ms-align-content: $alignment;
   align-content: $alignment;
+  -webkit-align-items: $align-items;
+  -moz-align-items: $align-items;
+  -ms-align-items: $align-items;
   align-items: $align-items;
 }

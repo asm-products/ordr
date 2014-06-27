@@ -10,12 +10,24 @@
 
 //Toolbar button style
 .toolbar_button
-  @include button($toolbar_button, $toolbar_button_text, Oswald, 400, .2em solid $charlie_primary, none, $foxtrot_primary, .2em solid$foxtrot_primary)
+  @include button($toolbar_button, $toolbar_button_text, Oswald, 400, .2em solid $charlie_primary, none, $foxtrot_primary, .2em solid $foxtrot_primary)
   font-size: .8em
-
+  display: block
+  width: 80%
+  margin-left: 10%
+  margin-bottom: 1em
+  vertical-align: top
+  & img
+    margin-right: 0.5em
 
 .new_job_button
   @include button($primary_button, $primary_button_text, Oswald, 400, 0, $primary_button_hover)
+  display: block
+  width: 80%
+  margin-left: 10%
+  margin-bottom: 3em
+  & img
+    margin-right: 0.5em
 
 .add_button
   @include button($golf_primary, none, Oswald, 400, none, $add_button_hover, #fff, none)

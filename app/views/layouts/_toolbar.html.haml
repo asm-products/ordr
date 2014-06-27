@@ -1,7 +1,25 @@
 // Toolbar on left side
 
-%button.new_job_button= link_to 'Add Job', new_job_path
-%button.toolbar_button= link_to 'Dashboard', jobs_path
-%button.toolbar_button{:href => "#"} View Notes
-%button.toolbar_button{:href => "#"} View Contacts
-%button.toolbar_button{:href => '/jobs/done'} View Completed
+%a{:href => "/jobs/new"}
+  %button.new_job_button
+    = image_tag "plus.svg", size: "17"
+    Add new job
+
+  // = link_to 'Add Job', new_job_path
+
+%a{:href => "/jobs"}
+  %button.toolbar_button
+    = image_tag "dashboard_icon.svg", size: "18"
+    Dashboard
+%a{:href => "#"}
+  %button.toolbar_button
+    = image_tag "notes_icon.svg", size: "16"
+    View Job Notes
+%a{:href => "#"}
+  %button.toolbar_button
+    = image_tag "contacts_icon.svg", size: "18"
+    View Job Contacts
+%a{:href => '/jobs/done'}
+  %button.toolbar_button
+    = image_tag "completed_icon.svg", size: "20"
+    View Completed
