@@ -118,6 +118,7 @@
 .step_content {
   @include span-columns(8);
   @include shift(2);
+  padding-top: 1em;
   p {
     width: 100%;
     display: block;

@@ -14,3 +14,20 @@
     = link_to content_edit_job_path({step: 'networking'}) do
       %button.add_button
         = image_tag "add_contact_icon.svg", size: "20"
+
+%section.step_content
+  %label Did / do you plan to discuss this position with someone?
+
+  / = form_for @job do |g|
+  /   = fields_for @job.network do |f|
+  /     / = f.radio_button(:value, 'No')
+  /     / = f.label :value_No, 'No'
+  /     / = f.radio_button(:value, 'Yes')
+  /     / = f.label :value_Yes, 'Yes'
+
+  /     // if yes, show: when?
+  /     = f.label :date 'When is the meeting?'
+  /     = f.date_field :date
+
+  /   = g.submit 'Save', { class: 'primary_button' }
+

@@ -16,14 +16,17 @@
         = image_tag "add_contact_icon.svg", size: "20"
 
 %section.step_content
-  %label Company mission/values
-  = @job.research.company_mission
+  %label Company's mission/vision/values
+  %p
+    = @job.research.company_mission
 
-  %label Company future goals
-  = @job.research.company_goals
+  %label Company's strategic goals
+  %p
+    = @job.research.company_goals
 
-  %label What is your favorite project they've been working on?
-  = @job.research.current_projects
+  %label Favorite company product/project/service
+  %p
+    = @job.research.current_projects
 
   %label Additional notes
 

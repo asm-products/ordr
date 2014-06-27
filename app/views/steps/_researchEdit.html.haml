@@ -16,13 +16,14 @@
         = image_tag "add_contact_icon.svg", size: "20"
 
 %section.step_content
-  %label Company mission/values
-  = @job.research.company_mission
+  = form_for @job do |g|
+    = fields_for @job.research do |f|
+      = f.label :company_mission
+      = f.text_area :company_mission
 
-  %label Company future goals
-  = @job.research.company_goals
+      = f.label :company_goals
+      = f.text_area :company_goals
 
-  %label What is your favorite project they've been working on?
-  = @job.research.current_projects
-
-  %label Additional notes
+      = f.label :current_projects
+      = f.text_area :current_projects
+    = g.submit 'Save', { class: 'primary_button' }

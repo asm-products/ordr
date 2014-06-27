@@ -14,3 +14,30 @@
     = link_to content_edit_job_path({step: 'documents'}) do
       %button.add_button
         = image_tag "add_contact_icon.svg", size: "20"
+
+%section.step_content
+  %ul
+    %li
+      %div.checked
+      = @job.resume.resume
+      %label Resume
+    %li
+      %div.checked
+      = @job.resume.cover_letter
+      %label Cover Letter
+    %li
+      %div.checked
+      = @job.resume.portfolio
+      %label Portfolio
+    %li
+      %div.checked
+      = @job.resume.certifications
+      %label Certifications
+    %li
+      %div.checked
+      = @job.resume.references
+      %label References
+    %li
+      %div.checked
+      = @job.resume.recommendations
+      %label Recommendations

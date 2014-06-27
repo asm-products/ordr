@@ -16,13 +16,11 @@
         = image_tag "add_contact_icon.svg", size: "20"
 
 %section.step_content
-  %label Do you plan to meet with someone to discuss this position?
+  %label Did / do you plan to discuss this position with someone?
+  %p
+    / = @job.network.value
 
-  %button Schedule meeting
-
-  %label Meeting date & time:
-
-  %label Contact
-
-
-
+  = @job.networks.each do |network|
+    %label When will / did you talk to them?
+    %p
+      = network.date
