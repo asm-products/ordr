@@ -1,6 +1,0 @@
-<% @interviews.each do |i| %>
-  Interviews:
-  <%= i.type %><br>
-  <%= i.thank_you %><br>
-<% end %>
-  <%= link_to "Add an interview", new_interview_job_path(@job), method: :put %>
