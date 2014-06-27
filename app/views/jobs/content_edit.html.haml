@@ -8,6 +8,7 @@
         %h2 1
       %h1
         = t('job_steps.details.label')
+    %section.step_content
     = form_for @job do |f|
       = f.label :url
       = f.text_field :url
