@@ -80,6 +80,11 @@ class JobsController < ApplicationController
     redirect_to @job
   end
 
+  def deleted_index
+    @jobs = Job.deleted.where(user: current_user).to_a
+    render "jobs/index"
+  end
+
 private
   # Use callbacks to share common setup or constraints between actions.
   def set_job

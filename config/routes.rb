@@ -1,14 +1,17 @@
 Rails.application.routes.draw do
   resources :jobs do
+      get :deleted_index, on: :collection
     member do
       put :new_network
       patch :new_network
       put :new_interview
       patch :new_interview
     end
+
   end
   root 'sessions#new'
-  resources :users, only: [:new, :create, :show]
+  resources :users, only: [:new, :create, :show] do
+  end
 
   get '/login', to: 'sessions#new', as: :login
   post '/login', to: 'sessions#create'
