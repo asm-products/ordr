@@ -29,6 +29,5 @@
         = f.label :date, 'When is the meeting?'
         = f.date_field :date
       - else
-        = f.label :date, 'When is the meeting?', { class: 'primary_button' }
-        = f.date_field :date, { class: 'primary_button' }
+        You should schedule a meeting
       = g.submit 'Save', { class: 'primary_button' }

@@ -18,26 +18,20 @@
 %section.step_content
   %ul
     %li
-      %div.checked
-      = @job.resume.resume
+      %div{class: @job.resume.resume ? 'checked' : 'unchecked'}
       %label Resume
     %li
-      %div.checked
-      = @job.resume.cover_letter
+      %div{class: @job.resume.cover_letter ? 'checked' : 'unchecked'}
       %label Cover Letter
     %li
-      %div.checked
-      = @job.resume.portfolio
+      %div{class: @job.resume.portfolio ? 'checked' : 'unchecked'}
       %label Portfolio
     %li
-      %div.checked
-      = @job.resume.certifications
+      %div{class: @job.resume.certifications ? 'checked' : 'unchecked'}
       %label Certifications
     %li
-      %div.checked
-      = @job.resume.references
+      %div{class: @job.resume.references ? 'checked' : 'unchecked'}
       %label References
     %li
-      %div.checked
-      = @job.resume.recommendations
+      %div{class: @job.resume.recommendations ? 'checked' : 'unchecked'}
       %label Recommendations
