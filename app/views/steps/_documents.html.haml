@@ -1,9 +1,16 @@
 %header.content_header.outer_container
-  %section.step_content
-    %div.number
-      %h2 4
-    %h1
-      = t('job_steps.documents.label')
+  %article.steptitle_grid.steptitle_flex
+    %section.steptitle_width
+      %div.number
+        %h2 4
+      %h1
+        = t('job_steps.documents.label')
     = link_to content_edit_job_path({step: 'documents'}) do
       %button.add_button
-        = image_tag "edit_icon.svg", size: "17"
+        = image_tag "edit_icon.svg", size: "20"
+    = link_to content_edit_job_path({step: 'documents'}) do
+      %button.add_button
+        = image_tag "add_note_icon.svg", size: "20"
+    = link_to content_edit_job_path({step: 'documents'}) do
+      %button.add_button
+        = image_tag "add_contact_icon.svg", size: "20"
