@@ -49,7 +49,7 @@ en:
 
   job:
     delete: "Close Job Entry"
-    delete_confirmation: "Are you sure you wish to remove this entry?"
+    delete_confirmation: "Do you want to archive this job entry?"
     edit: "Edit Job Information"
   job_steps:
     label: "Job Steps"

@@ -11,27 +11,15 @@
     </div>
   <% end %>
 
-  <div class="field">
     <%= f.label :title %><br>
     <%= f.text_field :title %>
-  </div>
-  <div class="field">
     <%= f.label :url %><br>
     <%= f.text_field :url %>
-  </div>
-  <div class="field">
     <%= f.label :company_name %><br>
     <%= f.text_field :company_name %>
-  </div>
-  <div class="field">
-    <%= f.label :due_date %><br>
+    <%= f.label :due_date, 'Apply by' %><br>
     <%= f.date_field :due_date %>
-  </div>
-  <div class="field">
-    <%= f.label :type %>
+    <%= f.label :type, 'How did you find it?' %>
     <%= f.text_field :type %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <%= f.submit class: 'primary_button'%>
 <% end %>
