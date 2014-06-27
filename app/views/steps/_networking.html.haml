@@ -19,8 +19,9 @@
   %label Did / do you plan to discuss this position with someone?
   %p
     / = @job.network.value
-
-  = @job.networks.each do |network|
+  - unless @job.network.plans == false
     %label When will / did you talk to them?
     %p
-      = network.date
+      = @job.network.date
+  - else
+    %label Schedule a meeting

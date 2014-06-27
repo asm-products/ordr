@@ -19,7 +19,7 @@
   %h2 Are all your documents complete / on hand?
 
   = form_for @job do |g|
-    = fields_for @job.resume do |f|
+    = g.fields_for @job.resume do |f|
       %ul
         %li
           = f.check_box :resume
@@ -40,4 +40,3 @@
           = f.check_box :recommendations
           = f.label :recommendations
     = g.submit 'Save', { class: 'primary_button' }
-
