@@ -3,13 +3,15 @@
 - content_for :content do
   - case step
   - when "details"
-    // Header of step
     %header.content_header.outer_container
       %section.step_content
         %div.number
           %h2 1
         %h1
           = t('job_steps.details.label')
+        = link_to content_edit_job_path({step: step}) do
+          %button.add_button
+            = image_tag "edit_icon.svg", size: "17"
 
     // Labels/detail
     %article.outer_container
@@ -36,11 +38,13 @@
   - when "research"
     = t('job_steps.research.label')
     = @job.research.company_mission
+
+    // comment
   - when "contacts"
     - @job.contacts.each do |contact|
       = contact.name
+
   - else
     = t('general_errors.not_in_database', thing: 'Content')
 
-  //
   = link_to "Edit", content_edit_job_path({step: step})
