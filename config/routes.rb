@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   root 'welcome#index'
 
   resources :jobs do
@@ -13,6 +12,9 @@ Rails.application.routes.draw do
       patch :new_interview
     end
   end
+  
+  resources :notes
+  resources :contacts
 
   resources :users, only: [:new, :create, :show]
 
