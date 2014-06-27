@@ -20,10 +20,10 @@ gem 'bourbon'
 gem 'neat', '>=1.5.1'
 
 group :development do
-  gem 'eefgilm'
-  gem 'spring'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'eefgilm'
+  gem 'spring'
 end
 
 group :test do
