@@ -13,9 +13,4 @@ class ActiveSupport::TestCase
 
 end
 
-def sign_in
-
-end
-
-
 load "./db/seeds.rb"

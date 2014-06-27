@@ -16,6 +16,7 @@ feature "sign in with email and password" do
   before do
     create_user_for_tests
     visit root_path
+
     find('.main-header').click_link I18n.t('session.new_session.sign_out')
   end
   scenario "valid email" do
