@@ -6,14 +6,14 @@
   %h1
     =t('job_steps.label')
 
-= link_to details_job_path do
+= link_to content_job_path({step: "details"}) do
   %section.step_title.job_entry_item
     %div.number_title
       %h3 1
     %h2
       =t('job_steps.details.label')
 
-= link_to research_job_path do
+= link_to content_job_path({step: "research"}) do
   %section.step_title.job_entry_item
     %div.number_title
       %h3 2
@@ -22,5 +22,4 @@
 
 %section
   %p
-    = link_to t('job.edit'), edit_job_path(@job)
     = link_to t('job.delete'), job_path(@job), method: :delete, data: { confirm: t('job.delete_confirmation') }
