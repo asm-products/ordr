@@ -3,25 +3,19 @@
 - content_for :content do
   - case step
   - when 'details'
-    %header.content_header
-      %div.number
-        %h2 1
-      %h1
-        = t('job_steps.details.label')
-      = link_to content_edit_job_path({step: step}) do
-        %button.add_button
-          = image_tag "edit_icon.svg", size: "18"
-
-    %section.step_content
-    = form_for @job do |f|
-      = f.label :url
-      = f.text_field :url
-      = f.label :due_date
-      = f.date_field :due_date
-      = f.label :type
-      = f.text_field :type
-      = f.submit
+    = render 'steps/detailsEdit'
 
   - when 'research'
-    = form_for @job do |f|
-      // Match fields to "content_view" for this step
+    = render 'steps/researchEdit'
+
+  - when 'networking'
+    = render 'steps/networkingEdit'
+
+  - when 'documents'
+    = render 'steps/documentsEdit'
+
+  - when 'apply'
+    = render 'steps/applyEdit'
+
+  - when 'interview'
+    = render 'steps/interviewEdit'

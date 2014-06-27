@@ -1,0 +1,23 @@
+%header.content_header.outer_container
+  %section.step_content
+    %div.number
+      %h2 2
+    %h1
+      = t('job_steps.research.label')
+    = link_to content_edit_job_path({step: 'research'}) do
+      %button.add_button
+        = image_tag "edit_icon.svg", size: "17"
+
+%section.step_content
+  %label Company mission/values
+  = @job.research.company_mission
+
+  %label Company future goals
+  = @job.research.company_goals
+
+  %label What is your favorite project they've been working on?
+  = @job.research.current_projects
+
+  %label Additional notes
+
+

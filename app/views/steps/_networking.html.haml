@@ -1,0 +1,22 @@
+%header.content_header.outer_container
+  %section.step_content
+    %div.number
+      %h2 3
+    %h1
+      = t('job_steps.networking.label')
+    = link_to content_edit_job_path({step: 'networking'}) do
+      %button.add_button
+        = image_tag "edit_icon.svg", size: "17"
+
+%section.step_content
+  %label Do you plan to meet with someone to discuss this position?
+
+  %button Schedule meeting
+
+  %label Meeting date & time:
+  = @job.network.date
+
+  %label Contact
+  = @job.rea
+
+

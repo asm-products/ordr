@@ -2,49 +2,30 @@
 
 - content_for :content do
   - case step
-  - when "details"
-    %header.content_header.outer_container
-      %section.step_content
-        %div.number
-          %h2 1
-        %h1
-          = t('job_steps.details.label')
-        = link_to content_edit_job_path({step: step}) do
-          %button.add_button
-            = image_tag "edit_icon.svg", size: "17"
+    - when 'details'
+      = render 'steps/details'
 
-    // Labels/detail
-    %article.outer_container
-      %section.step_content
-        %label Job title
-        %p
-          = @job.title
-        %label Job posting URL
-        %p
-          = @job.url
-        %label Company name
-        %p
-          = @job.company_name
-        %label URL
-        %p
-          = @job.url
-        %label Apply by:
-        %p
-          = @job.due_date
-        %label How did you find this job?
-        %p
-          = @job.type
+    - when 'research'
+      = render 'steps/research'
 
-  - when "research"
-    = t('job_steps.research.label')
-    = @job.research.company_mission
+    - when 'networking'
+      = render 'steps/networking'
 
-    // comment
-  - when "contacts"
-    - @job.contacts.each do |contact|
-      = contact.name
+    - when 'documents'
+      = render 'steps/documents'
 
-  - else
-    = t('general_errors.not_in_database', thing: 'Content')
+    - when 'apply'
+      = render 'steps/apply'
+
+    - when 'interview'
+      = render 'steps/interview'
+
+
+    - when "contacts"
+      - @job.contacts.each do |contact|
+        = contact.name
+
+    - else
+      = t('general_errors.not_in_database', thing: 'Content')
 
   = link_to "Edit", content_edit_job_path({step: step})
