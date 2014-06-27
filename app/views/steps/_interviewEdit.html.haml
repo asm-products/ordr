@@ -19,15 +19,14 @@
   %section.step_content
     = form_for @job do |g|
       = g.fields_for @job.interview do |f|
-  /     / = g.radio_button(:value, 'No')
-  /     / = g.label :value_No, 'No'
-  /     / = g.radio_button(:value, 'Yes')
-  /     / = g.label :value_Yes, 'Yes'
-
-        = f.check_box(:sent)
-        = f.label :sent, t('job_steps.apply.sent')
-        %li
-          = f.label :date, 'When did you apply?'
-          = f.date_field :date
-
+        = f.radio_button :type, 'phone'
+        = f.label :type_phone, "Phone Interview"
+        = f.radio_button :type, 'video'
+        = f.label :type_video, "Video Interview"
+        = f.radio_button :type, 'person'
+        = f.label :type_person, "In-Person Interview"
+        = f.radio_button :type, 'other'
+        = f.label :type_other, "Other"
+        = f.label :date
+        = f.date_field :date
       = g.submit "Save", {class: 'primary_button'}
