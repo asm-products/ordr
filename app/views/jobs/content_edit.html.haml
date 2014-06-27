@@ -3,6 +3,11 @@
 - content_for :content do
   - case step
   - when 'details'
+    %header.content_header
+      %div.number
+        %h2 1
+      %h1
+        = t('job_steps.details.label')
     = form_for @job do |f|
       = f.label :url
       = f.text_field :url
@@ -11,6 +16,7 @@
       = f.label :type
       = f.text_field :type
       = f.submit
+
   - when 'research'
     = form_for @job do |f|
       // Match fields to "content_view" for this step
