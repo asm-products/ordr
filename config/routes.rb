@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     end
   end
 
-  root 'welcome#new'
+  root 'welcome#index'
   resources :users, only: [:new, :create, :show]
 
   get '/login', to: 'sessions#new', as: :login
