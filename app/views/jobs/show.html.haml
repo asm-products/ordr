@@ -1,4 +1,7 @@
 = render @job
 
 - content_for :content do
-  = t('job_steps.more_info')
+  %section.step_content
+    %h1.label
+      = t('job_steps.more_info')
+    = image_tag "arrow_test.svg", size: "300"
