@@ -71,16 +71,12 @@ class JobsController < ApplicationController
     end
   end
 
-  def research
-    render 'jobs/research_view', locals: {research: @job.research}
+  def content
+    render 'jobs/content_view', locals: {step: params[:step]}
   end
 
-  def network
-    render 'jobs/network_view', locals: {networks: @job.networks}
-  end
-
-  def details
-    render 'jobs/details_view', locals: {details: @job}
+  def content_edit
+    render 'jobs/content_edit', locals: {step: params[:step]}
   end
 
 private

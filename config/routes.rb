@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   resources :jobs do
-    get 'details', on: :member
-    get 'research', on: :member
-    get 'network', on: :member
+    member do
+      get 'content'
+      get 'content_edit'
+    end
   end
 
   root 'sessions#new'
