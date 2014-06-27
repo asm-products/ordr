@@ -1,0 +1,213 @@
+@import "mixins";
+
+//-----Alerts------
+@include alert($alpha_color, bad);
+@include alert($bravo_color, good);
+
+//-----Main Header-----
+.main_header {
+  @include flexy();
+  background-color: $header_background;
+  width: 100%;
+  height: 4em;
+  padding: 1.5em;
+}
+
+.signup {
+  color: $charlie_color;
+  text-transform: uppercase;
+}
+
+//-----Sub-Headers-----
+.list_header {
+  border-bottom: 1px solid $golf_color_charlie;
+  height: 3em;
+  padding: 0 1em;
+}
+
+.list_selected_job {
+  @extend .list_header;
+  height: 4.5em;
+  padding: 1em 1em 0em 1em;
+  & h2 {
+    color: $alpha_color;
+  }
+  & h3 {
+    color: $alpha_color;
+  }
+}
+
+
+
+
+//------Step Header-----
+.number {
+  height: 2.2em;
+  width: 2.2em;
+  text-align: center;
+  display: inline-block;
+  float: left;
+  margin-right: 1.5em;
+  & h2 {
+    font-family: Oswald;
+    font-weight: 700;
+    font-size: 1em;
+    letter-spacing:.02em;
+    color: $delta_color;
+    background: $echo_color;
+    border-radius: 50%;
+    line-height: 215%;
+    text-transform: uppercase;
+  }
+}
+
+.step_header {
+  width: 100%;
+  display: inline-block;
+  padding-left: 1em;
+
+}
+
+
+//-----Step Title------
+
+.number_title {
+  height: 100%;
+  width: 1.75em;
+  text-align: center;
+  display: inline-block;
+  float: left;
+  margin-right: 1em;
+  & h3 {
+    font-family: Oswald;
+    font-weight: 700;
+    font-size: .7em;
+    letter-spacing: .02em;
+    color: $delta_color;
+    background: $echo_color;
+    border-radius: 50%;
+    line-height: 250%;
+  }
+}
+
+.step_title {
+  width: 100%;
+  display: inline-block;
+  padding-left: 1em;
+  & h2 {
+    font-family: Oswald;
+    font-weight: 700;
+    font-size: 1em;
+    letter-spacing: .02em;
+    border-radius: 50%;
+    line-height: 215%;
+    text-transform: uppercase;
+  }
+}
+
+//-----Job Entry Item-----
+
+.job_entry_item {
+  width: 100%;
+  padding: .7em .7em .7em 1.5em;
+  background: $golf_color;
+  &:hover {
+    background: $delta_color;
+    box-shadow: inset -.6em 0em 0em $bravo_color;
+  }
+}
+
+
+//-----Tooltip------
+
+.tooltip {
+    display: inline;
+    position: relative;
+}
+
+.tooltip:hover {
+    color: #c00;
+    text-decoration: none;
+}
+
+.tooltip:hover:after {
+    background: #111;
+    background: rgba(0,0,0,.8);
+    border-radius: .5em;
+    top: 2.5em;
+    color: #fff;
+    content: attr(title);
+    display: block;
+    padding: 1em 1em;
+    position: absolute;
+    left: -2.2em;
+    text-shadow: 0 1px 0 #000;
+    white-space: nowrap;
+    z-index: 98;
+}
+
+.tooltip:hover:before {
+    border: solid;
+    border-color: #111 transparent;
+    border-color: rgba(0,0,0,.8) transparent;
+    border-width: 0em .6em .6em .6em;
+    bottom: -1.3em;
+    left: 1.2em;
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: 99;
+}
+
+
+// a[data-tooltip=true] {
+//   text-decoration: underline;
+// }
+// a[data-tooltip=true]:hover {
+//   position: relative;
+//   cursor: pointer;
+// }
+
+// /* The tooltip bubble */
+// a[data-tooltip=true]:before {
+//   content: attr(title);
+//   position: absolute;
+//   top: -3em;
+//   left: -1em;
+//   visibility: hidden;
+//   display: block;
+//   padding: 0.5em 1em;
+//   border-radius: 6px;
+//   background-color: #666;
+//   color: #fff;
+// }
+
+// /* The tooltip triangle */
+// a[data-tooltip=true]:hover:after {
+//   border: 11px solid transparent;
+//   border-top-color: #666;
+//   content: '';
+//   display: block;
+//   height: 0px;
+//   width: 0px;
+//   position: absolute;
+//   top: -14px;
+// }
+// a[data-tooltip=true]:hover:before {
+//   visibility: visible;
+// }
+
+// .triangle_right:hover + .job_entry_item {
+//   background: red;
+// }
+
+// .triangle_right {
+//   @include triangle(1.5em, gray, right);
+//   float: right;
+//   vertical-align: middle;
+//   // &:hover {
+//   //   @include triangle(1.5em, $bravo_color, right);
+//   // }
+// }
+
+

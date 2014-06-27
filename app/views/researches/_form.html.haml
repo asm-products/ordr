@@ -1,0 +1,9 @@
+= simple_form_for([@job, @research]) do |f|
+  = f.error_notification
+  .form-inputs
+    = f.input :values, input_html: { id: 'research-values' }
+    = f.input :salary, input_html: { id: 'research-salary' }
+    = f.input :location, input_html: { id: 'research-location' }
+    = f.input :notes, input_html: { id: 'research-notes' }
+  .form-actions
+    = f.button :submit, input_html: { id: 'research-button-submit' }

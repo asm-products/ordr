@@ -14,6 +14,7 @@ class Job
   embeds_one :research
   embeds_one :resume
   embeds_one :job_application
+
   has_many :contacts, as: :contactable
   belongs_to :user
   accepts_nested_attributes_for :research, :networks, :resume, :job_application, :interviews
@@ -27,3 +28,4 @@ class Job
     self.interviews.create
    end
 end
+

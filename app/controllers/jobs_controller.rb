@@ -1,3 +1,4 @@
+
 class JobsController < ApplicationController
   before_filter :check_authorization
   before_action :set_job, only: [:show, :edit, :update, :destroy, :new_network, :new_interview]
@@ -52,6 +53,7 @@ class JobsController < ApplicationController
   def update
     respond_to do |format|
       if @job.update(job_params)
+        UserMailer.network_reminder(@user).deliver
         format.html { redirect_to @job, notice: 'Job was successfully updated.' }
         format.json { render :show, status: :ok, location: @job }
       else
@@ -71,13 +73,12 @@ class JobsController < ApplicationController
     end
   end
 
-
-  def research
-    render 'jobs/research_view', locals: {research: @job.research}
+  def content
+    render 'jobs/content_view', locals: {step: params[:step]}
   end
 
-  def network
-    render 'jobs/network_view', locals: {networks: @job.networks}
+  def content_edit
+    render 'jobs/content_edit', locals: {step: params[:step]}
   end
   def new_network
     @job.networks.create

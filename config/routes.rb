@@ -1,14 +1,9 @@
 Rails.application.routes.draw do
   resources :jobs do
-    get 'research', on: :member
-    get 'network', on: :member
-    member do
-      put :new_network
-      patch :new_network
-      put :new_interview
-      patch :new_interview
+      get 'content'
+      get 'content_edit'
     end
-  end
+
 
 
   root 'sessions#new'
@@ -20,5 +15,4 @@ Rails.application.routes.draw do
   get '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   get 'auth/failure', to: 'sessions#failure'
   get '/logout', to: 'sessions#destroy', as: :logout
-
 end

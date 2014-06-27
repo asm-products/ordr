@@ -1,0 +1,30 @@
+.body_container
+  @include outer-container
+
+//-----Toolbar Container-----
+.toolbar
+  background: $toolbar_background
+  @include calc(height, '100vh - 4em')
+  display: inline-block
+  @include span-columns(2)
+  padding-top: 1em
+
+//-----Column 2 (List) Container-----
+.list
+  background: $list_background
+  @include calc(height, '100vh - 4em')
+  display: inline-block
+  @include span-columns(3)
+  padding-top: 1em
+
+//-----Column 3 (Content) Container-----
+.content
+  @include span-columns(7)
+  background: $content_background
+  @include calc(height, '100vh - 4em')
+  display: inline-block
+  @include media($tablet)
+    background: green
+  @include media($mobile)
+    background: black
+  padding-top: 1em

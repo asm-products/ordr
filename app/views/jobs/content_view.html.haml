@@ -1,0 +1,22 @@
+= render @job
+
+- content_for :content do
+  - case step
+  - when "details"
+    // Header of step
+    %header
+      %div 1
+      %h1
+        = t('job_steps.details.label')
+
+    // Labels/detail
+
+    = @job.url
+    = @job.due_date
+    = @job.type
+  - when "research"
+    = t('job_steps.research.label')
+    = @job.research.company_mission
+
+  //
+  = link_to "Edit", content_edit_job_path({step: step})
