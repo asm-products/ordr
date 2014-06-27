@@ -1,0 +1,31 @@
+.form
+  width: 50%
+
+input, textarea
+  outline: none
+  &:not([type='submit'])
+    width: 100%
+    display: block
+    border-radius: 0.5em
+    padding: 0.5em
+    border: 0.2em solid $input_border
+    outline: none
+    margin-bottom: 1.5em
+
+textarea
+  height: 5em
+
+\::-webkit-input-placeholder
+  color: $golf_color_charlie
+\:-moz-placeholder
+  color: $golf_color_charlie
+\::-moz-placeholder
+  color: $golf_color_charlie
+\:-ms-input-placeholder
+  color: $golf_color_charlie
+
+label
+  @extend h1
+  color: $form_label_color
+  padding-left: 0.4em
+  font-size: 1.2em

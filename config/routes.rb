@@ -1,28 +1,17 @@
 Rails.application.routes.draw do
-  root 'sessions#new'
-
   resources :jobs do
-    resources :interviews do
-      resources :contacts
-      resources :notes
-    end
-    resources :applies do
-      resources :contacts
-      resources :notes
-    end
-    resources :writings do
-      resources :contacts
-      resources :notes
-    end
-    resources :networks do
-      resources :contacts
-      resources :notes
-    end
-    resources :researches do
-      resources :contacts
-      resources :notes
+    get :deleted_index, on: :collection
+    member do
+      get 'content'
+      get 'content_edit'
+      put :new_network
+      patch :new_network
+      put :new_interview
+      patch :new_interview
     end
   end
+
+  root 'sessions#new'
   resources :users, only: [:new, :create, :show]
 
   get '/login', to: 'sessions#new', as: :login
@@ -31,5 +20,4 @@ Rails.application.routes.draw do
   get '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   get 'auth/failure', to: 'sessions#failure'
   get '/logout', to: 'sessions#destroy', as: :logout
-
 end
