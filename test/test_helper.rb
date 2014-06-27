@@ -10,9 +10,12 @@ require "minitest/rails/capybara"
 require "minitest/pride" #just for kicks
 
 class ActiveSupport::TestCase
-  
+
 end
 
 def sign_in
 
 end
+
+
+load "./db/seeds.rb"

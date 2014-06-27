@@ -48,6 +48,15 @@ class JobsController < ApplicationController
     render 'jobs/content_edit', locals: {step: params[:step]}
   end
 
+
+  def content
+    render 'jobs/content_view', locals: {step: params[:step]}
+  end
+
+  def content_edit
+    render 'jobs/content_edit', locals: {step: params[:step]}
+  end
+
   def new_network
     @job.networks.create
     redirect_to @job

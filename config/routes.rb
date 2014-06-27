@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'welcome#index'
   resources :jobs do
     get :deleted_index, on: :collection
     member do
@@ -10,8 +11,6 @@ Rails.application.routes.draw do
       patch :new_interview
     end
   end
-
-  root 'welcome#new'
   resources :users, only: [:new, :create, :show]
 
   get '/login', to: 'sessions#new', as: :login

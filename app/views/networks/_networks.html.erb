@@ -1,0 +1,4 @@
+<% @networks.each do |n| %>
+  Networking:<%= n.date %><br>
+<% end %>
+  <%= link_to "Discuss with another person", new_network_job_path(@job), method: :put %>

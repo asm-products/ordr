@@ -11,8 +11,7 @@ feature "Mock Linkedin Authentication" do
   scenario "sign in with Linkedin" do
     visit root_path
     click_link "Sign in with linkedin"
-    page.text.must_include I18n.t('session.messages.new_user.omniauth', user: 'Example User', provider: 'linkedin')
-
+    page.text.must_include I18n.t('session.messages.new_user.omniauth', user: 'linkedin_user', provider: 'linkedin')
     visit root_path
     find('.main-header').click_on I18n.t('session.new_session.sign_out')
     page.text.must_include I18n.t('session.messages.logout')
