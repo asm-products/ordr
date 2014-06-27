@@ -12,7 +12,7 @@ Rails.application.routes.draw do
       patch :new_interview
     end
   end
-  
+
   resources :notes
   resources :contacts
 

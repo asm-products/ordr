@@ -18,16 +18,17 @@
 %section.step_content
   %label Did / do you plan to discuss this position with someone?
 
-  / = form_for @job do |g|
-  /   = fields_for @job.network do |f|
-  /     / = f.radio_button(:value, 'No')
-  /     / = f.label :value_No, 'No'
-  /     / = f.radio_button(:value, 'Yes')
-  /     / = f.label :value_Yes, 'Yes'
-
-  /     // if yes, show: when?
-  /     = f.label :date 'When is the meeting?'
-  /     = f.date_field :date
-
-  /   = g.submit 'Save', { class: 'primary_button' }
-
+  = form_for @job do |g|
+    = g.fields_for @job.network do |f|
+      = f.radio_button(:plans, 'no')
+      = f.label :plans_no, 'No'
+      = f.radio_button(:plans, 'yes')
+      = f.label :plans_yes, 'Yes'
+      %br
+      - unless @job.network.plans == false
+        = f.label :date, 'When is the meeting?'
+        = f.date_field :date
+      - else
+        = f.label :date, 'When is the meeting?', { class: 'primary_button' }
+        = f.date_field :date, { class: 'primary_button' }
+      = g.submit 'Save', { class: 'primary_button' }
