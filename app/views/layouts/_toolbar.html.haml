@@ -1,6 +1,6 @@
 // Toolbar on left side
 
-%a{:href => "/jobs/new"}
+= link_to new_job_path do
   %button.new_job_button
     = image_tag "plus.svg", size: "17"
     Add new job
@@ -11,7 +11,7 @@
   %button.toolbar_button
     = image_tag "dashboard_icon.svg", size: "18"
     Dashboard
-- if @job
+- if @job && @job.created_at
   = link_to content_job_path({step: "notes"}) do
     %button.toolbar_button
       = image_tag "notes_icon.svg", size: "16"

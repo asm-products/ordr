@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  root 'welcome#index'
+
   resources :jobs do
     get :deleted_index, on: :collection
     member do
@@ -11,7 +14,6 @@ Rails.application.routes.draw do
     end
   end
 
-  root 'sessions#new'
   resources :users, only: [:new, :create, :show]
 
   get '/login', to: 'sessions#new', as: :login
