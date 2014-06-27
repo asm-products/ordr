@@ -69,6 +69,7 @@ en:
     apply:
       label: "Apply"
       tooltip: "You can't get a job without applying for it"
+      sent: "Send in your application"
     interview:
       label: "Interview"
       tooltip: "Ace it"

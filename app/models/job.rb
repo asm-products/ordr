@@ -25,6 +25,6 @@ class Job
     self.resume = self.create_resume
     self.networks.create
     self.interviews.create
-   end
+  end
 end
 

@@ -2,26 +2,28 @@
 
 - content_for :content do
   - case step
-  - when "details"
-    // Header of step
-    %header
-      %div 1
-      %h1
-        = t('job_steps.details.label')
+    - when 'details'
+      = render 'steps/details'
 
-    // Labels/detail
+    - when 'research'
+      = render 'steps/research'
 
-    = @job.url
-    = @job.due_date
-    = @job.type
-  - when "research"
-    = t('job_steps.research.label')
-    = @job.research.company_mission
-  - when "contacts"
-    - @job.contacts.each do |contact|
-      = contact.name
-  - else
-    = t('general_errors.not_in_database', thing: 'Content')
+    - when 'networking'
+      = render 'steps/networking'
 
-  //
-  = link_to "Edit", content_edit_job_path({step: step})
+    - when 'documents'
+      = render 'steps/documents'
+
+    - when 'apply'
+      = render 'steps/apply'
+
+    - when 'interview'
+      = render 'steps/interview'
+
+
+    - when "contacts"
+      - @job.contacts.each do |contact|
+        = contact.name
+
+    - else
+      = t('general_errors.not_in_database', thing: 'Content')

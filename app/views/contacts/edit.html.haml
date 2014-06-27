@@ -1,3 +1,7 @@
-%h1 Edit Contact
+%h1 Editing contact
+
 = render 'form'
-= link_to 'Back', :back
+
+= link_to 'Show', @contact
+\|
+= link_to 'Back', contacts_path

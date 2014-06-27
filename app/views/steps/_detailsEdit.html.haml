@@ -1,0 +1,23 @@
+%header.content_header.outer_container
+  %section.step_content
+    %div.number
+      %h2 1
+    %h1
+      = t('job_steps.details.label')
+    = link_to content_edit_job_path({step: 'details'}) do
+      %button.add_button
+        = image_tag "edit_icon.svg", size: "17"
+
+%section.step_content
+  = form_for @job do |f|
+    = f.label :title
+    = f.text_field :title
+    = f.label :url
+    = f.text_field :url
+    = f.label :due_date
+    = f.date_field :due_date
+    = f.radio_button(:type, 'Person')
+    = f.label :type_person, 'In Person'
+    = f.radio_button(:type, 'Online')
+    = f.label :type_online, 'Online'
+    = f.submit 'Save', { class: 'primary_button' }
