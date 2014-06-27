@@ -55,19 +55,19 @@ en:
     label: "Job Steps"
     more_info: "Click on any step to view more information."
     details:
-      label: "Job details"
+      label: "Job Details"
       tooltip:
     research:
-      label: "Research company"
+      label: "Research"
       tooltip: "Learn about where you want to work"
-    meeting:
+    networking:
       label: "Networking"
       tooltip: "Meet with someone to discuss the company"
     documents:
-      label: "Documents"
+      label: "Job Documents"
       tooltip: "Write your resume and cover letter"
-    application:
-      label: "Application"
+    apply:
+      label: "Apply"
       tooltip: "You can't get a job without applying for it"
     interview:
       label: "Interview"

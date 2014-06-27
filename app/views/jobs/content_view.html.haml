@@ -3,12 +3,25 @@
 - content_for :content do
   - case step
   - when "details"
-    = t('job_steps.details.label')
+    // Header of step
+    %header
+      %div 1
+      %h1
+        = t('job_steps.details.label')
+
+    // Labels/detail
+
     = @job.url
     = @job.due_date
     = @job.type
   - when "research"
     = t('job_steps.research.label')
     = @job.research.company_mission
+  - when "contacts"
+    - @job.contacts.each do |contact|
+      = contact.name
+  - else
+    = t('general_errors.not_in_database', thing: 'Content')
 
+  //
   = link_to "Edit", content_edit_job_path({step: step})

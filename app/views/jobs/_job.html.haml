@@ -1,10 +1,10 @@
-%section
-  %h2= @job.title
-  %h3= @job.company_name
-
-%header
+%header.list_header
   %h1
     =t('job_steps.label')
+
+%section.list_selected_job
+  %h2= @job.title
+  %h3= @job.company_name
 
 = link_to content_job_path({step: "details"}) do
   %section.step_title.job_entry_item
@@ -20,6 +20,37 @@
     %h2
       =t('job_steps.research.label')
 
-%section
-  %p
-    = link_to t('job.delete'), job_path(@job), method: :delete, data: { confirm: t('job.delete_confirmation') }
+= link_to content_job_path({step: "networking"}) do
+  %section.step_title.job_entry_item
+    %div.number_title
+      %h3 3
+    %h2
+      =t('job_steps.networking.label')
+
+= link_to content_job_path({step: "documents"}) do
+  %section.step_title.job_entry_item
+    %div.number_title
+      %h3 4
+    %h2
+      =t('job_steps.documents.label')
+
+= link_to content_job_path({step: "apply"}) do
+  %section.step_title.job_entry_item
+    %div.number_title
+      %h3 5
+    %h2
+      =t('job_steps.apply.label')
+
+= link_to content_job_path({step: "interview"}) do
+  %section.step_title.job_entry_item
+    %div.number_title
+      %h3 6
+    %h2
+      =t('job_steps.interview.label')
+
+
+= link_to job_path(@job), method: :delete, data: { confirm: t('job.delete_confirmation') } do
+  %section.close_job
+    %h2
+      = t('job.delete')
+

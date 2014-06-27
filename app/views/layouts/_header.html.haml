@@ -4,6 +4,6 @@
   %a.logo{:href => "#"}
     = image_tag "order_logo.svg", size: "100"
   - if current_user
-    = link_to "Sign out", url_for(controller: 'sessions', action: 'destroy')
+    = link_to "Sign out", url_for(controller: 'sessions', action: 'destroy'), :class => "signup"
   - else
-    = link_to "Sign in", url_for(controller: 'sessions', action: 'new')
+    = link_to "Sign in", url_for(controller: 'sessions', action: 'new'), :class => "signup"
