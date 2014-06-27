@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @contact.name
+%p
+  %b Company:
+  = @contact.company
+%p
+  %b Email:
+  = @contact.email
+%p
+  %b Phone:
+  = @contact.phone
+%p
+  %b Linkedin url:
+  = @contact.linkedin_url
+
+= link_to 'Edit', edit_contact_path(@contact)
+\|
+= link_to 'Back', contacts_path

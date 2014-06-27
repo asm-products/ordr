@@ -1,0 +1,9 @@
+%header.content_header.outer_container
+  %section.step_content
+    %div.number
+      %h2 4
+    %h1
+      = t('job_steps.documents.label')
+    = link_to content_edit_job_path({step: 'documents'}) do
+      %button.add_button
+        = image_tag "edit_icon.svg", size: "17"

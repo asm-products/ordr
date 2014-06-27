@@ -1,25 +1,26 @@
 // Toolbar on left side
 
-%a{:href => "/jobs/new"}
+= link_to new_job_path do
   %button.new_job_button
     = image_tag "plus.svg", size: "17"
     Add new job
 
   // = link_to 'Add Job', new_job_path
 
-%a{:href => "/jobs"}
+= link_to jobs_path do
   %button.toolbar_button
     = image_tag "dashboard_icon.svg", size: "18"
     Dashboard
-%a{:href => "#"}
-  %button.toolbar_button
-    = image_tag "notes_icon.svg", size: "16"
-    View Job Notes
-%a{:href => "#"}
-  %button.toolbar_button
-    = image_tag "contacts_icon.svg", size: "18"
-    View Job Contacts
-%a{:href => '/jobs/done'}
+- if @job && @job.created_at
+  = link_to content_job_path({step: "notes"}) do
+    %button.toolbar_button
+      = image_tag "notes_icon.svg", size: "16"
+      View Job Notes
+  = link_to content_job_path({step: "contacts"}) do
+    %button.toolbar_button
+      = image_tag "contacts_icon.svg", size: "18"
+      View Job Contacts
+= link_to deleted_index_jobs_path do
   %button.toolbar_button
     = image_tag "completed_icon.svg", size: "20"
     View Completed

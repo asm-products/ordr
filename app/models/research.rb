@@ -1,6 +1,5 @@
 class Research
   include Mongoid::Document
-  include Mongoid::Paranoia
   include Mongoid::Timestamps
 
   field :company_mission, type: String
@@ -8,7 +7,7 @@ class Research
   field :current_projects, type: String
   field :done, type: Mongoid::Boolean
 
-  has_many :notes, as: :notable
-  has_many :contacts, as: :contactable
+  has_many :notes, dependent: :delete
+  has_many :contacts, dependent: :delete
   embedded_in :job
 end

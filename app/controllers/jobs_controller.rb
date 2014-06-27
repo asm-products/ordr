@@ -1,6 +1,6 @@
 class JobsController < ApplicationController
   before_filter :check_authorization
-  before_action :set_job, except: [:index, :new, :create]
+  before_action :set_job, except: [:index, :new, :create, :deleted_index]
 
   def index
     @jobs = Job.where(user: current_user)

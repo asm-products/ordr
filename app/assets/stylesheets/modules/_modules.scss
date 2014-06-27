@@ -37,7 +37,10 @@
   }
 }
 
-
+.content_header {
+  @extend .list_header;
+  background-color: $delta_color;
+}
 
 
 //------Step Header-----
@@ -59,13 +62,6 @@
     line-height: 215%;
     text-transform: uppercase;
   }
-}
-
-.step_header {
-  width: 100%;
-  display: inline-block;
-  padding-left: 1em;
-
 }
 
 
@@ -117,6 +113,21 @@
   }
 }
 
+//-----Content Articles------
+
+.step_content {
+  @include span-columns(8);
+  @include shift(2);
+  p {
+    width: 100%;
+    display: block;
+    border-radius: 0.5em;
+    padding: 0.5em;
+    border: 0.2em solid $input_border;
+    outline: none;
+    margin-bottom: 1.5em;
+  }
+}
 
 //-----Tooltip------
 
@@ -158,56 +169,3 @@
     position: absolute;
     z-index: 99;
 }
-
-
-// a[data-tooltip=true] {
-//   text-decoration: underline;
-// }
-// a[data-tooltip=true]:hover {
-//   position: relative;
-//   cursor: pointer;
-// }
-
-// /* The tooltip bubble */
-// a[data-tooltip=true]:before {
-//   content: attr(title);
-//   position: absolute;
-//   top: -3em;
-//   left: -1em;
-//   visibility: hidden;
-//   display: block;
-//   padding: 0.5em 1em;
-//   border-radius: 6px;
-//   background-color: #666;
-//   color: #fff;
-// }
-
-// /* The tooltip triangle */
-// a[data-tooltip=true]:hover:after {
-//   border: 11px solid transparent;
-//   border-top-color: #666;
-//   content: '';
-//   display: block;
-//   height: 0px;
-//   width: 0px;
-//   position: absolute;
-//   top: -14px;
-// }
-// a[data-tooltip=true]:hover:before {
-//   visibility: visible;
-// }
-
-// .triangle_right:hover + .job_entry_item {
-//   background: red;
-// }
-
-// .triangle_right {
-//   @include triangle(1.5em, gray, right);
-//   float: right;
-//   vertical-align: middle;
-//   // &:hover {
-//   //   @include triangle(1.5em, $bravo_color, right);
-//   // }
-// }
-
-

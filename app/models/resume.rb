@@ -1,6 +1,5 @@
 class Resume
   include Mongoid::Document
-  include Mongoid::Paranoia
   include Mongoid::Timestamps
   field :resume, type: Mongoid::Boolean
   field :cover_letter, type: Mongoid::Boolean
@@ -10,7 +9,7 @@ class Resume
   field :recommendations, type: Mongoid::Boolean
   field :done, type: Mongoid::Boolean
 
-  has_many :notes, as: :notable
-  has_many :contacts, as: :contactable
+  has_many :notes, dependent: :delete
+  has_many :contacts, dependent: :delete
   embedded_in :job
 end

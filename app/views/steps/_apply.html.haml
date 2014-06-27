@@ -1,0 +1,16 @@
+%header.content_header.outer_container
+  %section.step_content
+    %div.number
+      %h2 5
+    %h1
+      = t('job_steps.apply.label')
+    = link_to content_edit_job_path({step: 'apply'}) do
+      %button.add_button
+        = image_tag "edit_icon.svg", size: "17"
+
+%article.outer_container
+  %section.step_content
+    %label
+      = t('job_steps.apply.sent')
+    %p
+      = @job.job_application.sent ? "Sent" : "Not sent"
