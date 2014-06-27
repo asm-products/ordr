@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
 
   Mongoid.raise_not_found_error = false
 
+  
   def authorize(user = nil)
     if user
       redirect_to login_path, alert: t("session.messages.unauthorized") unless current_user == user
