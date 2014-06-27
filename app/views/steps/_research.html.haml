@@ -1,22 +1,32 @@
 %header.content_header.outer_container
-  %section.step_content
-    %div.number
-      %h2 2
-    %h1
-      = t('job_steps.research.label')
+  %article.steptitle_grid.steptitle_flex
+    %section.steptitle_width
+      %div.number
+        %h2 2
+      %h1
+        = t('job_steps.research.label')
     = link_to content_edit_job_path({step: 'research'}) do
       %button.add_button
-        = image_tag "edit_icon.svg", size: "17"
+        = image_tag "edit_icon.svg", size: "20"
+    = link_to content_edit_job_path({step: 'research'}) do
+      %button.add_button
+        = image_tag "add_note_icon.svg", size: "20"
+    = link_to content_edit_job_path({step: 'research'}) do
+      %button.add_button
+        = image_tag "add_contact_icon.svg", size: "20"
 
 %section.step_content
-  %label Company mission/values
-  = @job.research.company_mission
+  %label Company's mission/vision/values
+  %p
+    = @job.research.company_mission
 
-  %label Company future goals
-  = @job.research.company_goals
+  %label Company's strategic goals
+  %p
+    = @job.research.company_goals
 
-  %label What is your favorite project they've been working on?
-  = @job.research.current_projects
+  %label Favorite company product/project/service
+  %p
+    = @job.research.current_projects
 
   %label Additional notes
 

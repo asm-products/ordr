@@ -1,9 +1,33 @@
 %header.content_header.outer_container
-  %section.step_content
-    %div.number
-      %h2 3
-    %h1
-      = t('job_steps.networking.label')
+  %article.steptitle_grid.steptitle_flex
+    %section.steptitle_width
+      %div.number
+        %h2 3
+      %h1
+        = t('job_steps.networking.label')
     = link_to content_edit_job_path({step: 'networking'}) do
       %button.add_button
-        = image_tag "edit_icon.svg", size: "17"
+        = image_tag "edit_icon.svg", size: "20"
+    = link_to content_edit_job_path({step: 'networking'}) do
+      %button.add_button
+        = image_tag "add_note_icon.svg", size: "20"
+    = link_to content_edit_job_path({step: 'networking'}) do
+      %button.add_button
+        = image_tag "add_contact_icon.svg", size: "20"
+
+%section.step_content
+  %label Did / do you plan to discuss this position with someone?
+
+  = form_for @job do |g|
+    = g.fields_for @job.network do |f|
+      = f.radio_button(:plans, 'no')
+      = f.label :plans_no, 'No'
+      = f.radio_button(:plans, 'yes')
+      = f.label :plans_yes, 'Yes'
+      %br
+      - unless @job.network.plans == false
+        = f.label :date, 'When is the meeting?'
+        = f.date_field :date
+      - else
+        You should schedule a meeting
+      = g.submit 'Save', { class: 'primary_button' }

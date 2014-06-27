@@ -24,8 +24,31 @@ textarea
 \:-ms-input-placeholder
   color: $golf_color_charlie
 
-label,
+label, .step_content h2
   @extend h1
   color: $form_label_color
   padding-left: 0.4em
   font-size: 1.2em
+  display: inline-block
+
+.unchecked
+  height: 1em
+  width: 1em
+  border-radius: 50%
+  border: 1px solid $bravo_color
+  background: #fff
+  display: inline-block
+  margin-right: 1em
+
+.checked
+  @extend .unchecked
+  background: $bravo_color
+
+input[type="radio"], input[type="checkbox"]
+  display: inline-block
+  width: inherit
+  vertical-align: baseline
+  margin-left: 2em
+
+li
+  margin-bottom: 1.5em

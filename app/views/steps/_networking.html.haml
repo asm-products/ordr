@@ -1,20 +1,27 @@
 %header.content_header.outer_container
-  %section.step_content
-    %div.number
-      %h2 3
-    %h1
-      = t('job_steps.networking.label')
+  %article.steptitle_grid.steptitle_flex
+    %section.steptitle_width
+      %div.number
+        %h2 3
+      %h1
+        = t('job_steps.networking.label')
     = link_to content_edit_job_path({step: 'networking'}) do
       %button.add_button
-        = image_tag "edit_icon.svg", size: "17"
+        = image_tag "edit_icon.svg", size: "20"
+    = link_to content_edit_job_path({step: 'networking'}) do
+      %button.add_button
+        = image_tag "add_note_icon.svg", size: "20"
+    = link_to content_edit_job_path({step: 'networking'}) do
+      %button.add_button
+        = image_tag "add_contact_icon.svg", size: "20"
 
 %section.step_content
-  %label Do you plan to meet with someone to discuss this position?
-
-  %button Schedule meeting
-
-  %label Meeting date & time:
-  = @job.network.date
-
-  %label Contact
-  = @job.rea
+  %label Did / do you plan to discuss this position with someone?
+  %p
+    / = @job.network.value
+  - unless @job.network.plans == false
+    %label When will / did you talk to them?
+    %p
+      = @job.network.date
+  - else
+    %label Schedule a meeting
