@@ -19,6 +19,10 @@
   %section.step_content
     = form_for @job do |g|
       = g.fields_for @job.job_application do |f|
-        = f.label :sent, t('job_steps.apply.sent')
         = f.check_box(:sent)
-      = g.submit "Save"
+        = f.label :sent, t('job_steps.apply.sent')
+        %li
+          = f.label :date, 'When did you apply?'
+          = f.date_field :date
+
+      = g.submit "Save", {class: 'primary_button'}

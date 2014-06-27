@@ -15,12 +15,14 @@
       %button.add_button
         = image_tag "add_contact_icon.svg", size: "20"
 
-
-
 %article.outer_container
   %section.step_content
     %label
       = t('job_steps.apply.sent')
     %p
       = @job.job_application.sent ? "Sent" : "Not sent"
+
+    %label Application date
+    %p
+      = @job.job_application.date
 
