@@ -1,9 +1,43 @@
 %header.content_header.outer_container
-  %section.step_content
-    %div.number
-      %h2 4
-    %h1
-      = t('job_steps.documents.label')
+  %article.steptitle_grid.steptitle_flex
+    %section.steptitle_width
+      %div.number
+        %h2 4
+      %h1
+        = t('job_steps.documents.label')
     = link_to content_edit_job_path({step: 'documents'}) do
       %button.add_button
-        = image_tag "edit_icon.svg", size: "17"
+        = image_tag "edit_icon.svg", size: "20"
+    = link_to content_edit_job_path({step: 'documents'}) do
+      %button.add_button
+        = image_tag "add_note_icon.svg", size: "20"
+    = link_to content_edit_job_path({step: 'documents'}) do
+      %button.add_button
+        = image_tag "add_contact_icon.svg", size: "20"
+
+%section.step_content
+  %h2 Are all your documents complete / on hand?
+
+  = form_for @job do |g|
+    = fields_for @job.resume do |f|
+      %ul
+        %li
+          = f.check_box :resume
+          = f.label :resume
+        %li
+          = f.check_box :cover_letter
+          = f.label :cover_letter
+        %li
+          = f.check_box :portfolio
+          = f.label :portfolio
+        %li
+          = f.check_box :certifications
+          = f.label :certifications
+        %li
+          = f.check_box :references
+          = f.label :references
+        %li
+          = f.check_box :recommendations
+          = f.label :recommendations
+    = g.submit 'Save', { class: 'primary_button' }
+
