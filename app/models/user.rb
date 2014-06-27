@@ -5,7 +5,6 @@ class User
   has_secure_password
   validates_uniqueness_of :email
 
-
   field :name, type: String
   field :email, type: String
   field :password_digest, type: String
