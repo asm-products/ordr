@@ -17,7 +17,7 @@
 
 %section.step_content
   = form_for @job do |g|
-    = fields_for @job.research do |f|
+    = g.fields_for @job.research do |f|
       = f.label :company_mission
       = f.text_area :company_mission
 
@@ -26,4 +26,4 @@
 
       = f.label :current_projects
       = f.text_area :current_projects
-    = g.submit 'Save', { class: 'primary_button' }
+    = g.submit 'Save', {class: 'primary_button'}

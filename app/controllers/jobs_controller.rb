@@ -29,7 +29,7 @@ class JobsController < ApplicationController
 
   def update
     if @job.update(job_params)
-      redirect_to @job, notice: 'Job was successfully updated.'
+      render 'jobs/content_view', notice: 'Job was successfully updated.', locals: {step: params[:step]}
     else
       render :edit
     end

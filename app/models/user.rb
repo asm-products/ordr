@@ -2,8 +2,9 @@ class User
   include Mongoid::Document
   include ActiveModel::SecurePassword
 
-  has_secure_password
-  validates_uniqueness_of :email
+  has_secure_password validations: false
+  validates_uniqueness_of :email if :email
+  validates_confirmation_of :password if :password
 
   field :name, type: String
   field :email, type: String
