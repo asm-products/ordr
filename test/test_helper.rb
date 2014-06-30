@@ -12,5 +12,3 @@ require "minitest/pride" #just for kicks
 class ActiveSupport::TestCase
 
 end
-
-load "./db/seeds.rb"
