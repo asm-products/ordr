@@ -13,7 +13,7 @@ class User
   has_many :jobs
 
   def add_provider(auth_hash)
-    unless has_provider(auth_hash["provider"])
+    unless has_provider(auth_hash['provider'])
       auth = Authentication.create(user: self, uid: auth_hash["uid"], provider: auth_hash["provider"])
       authentications << auth
     end
@@ -21,6 +21,6 @@ class User
 
 private
   def has_provider(provider)
-    authentications.any? {|x| x.provider == provider}
+    authentications.any? { |x| x.provider == provider }
   end
 end
