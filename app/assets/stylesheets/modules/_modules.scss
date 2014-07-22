@@ -46,10 +46,7 @@
 .list_selected_job {
   @extend .list_header;
   padding: 1em 1em 1em 1em;
-  & h2 {
-    color: $alpha_color;
-  }
-  & h3 {
+  & h2, & h3 {
     color: $alpha_color;
   }
 }
