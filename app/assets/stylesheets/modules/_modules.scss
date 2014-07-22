@@ -18,6 +18,25 @@
   text-transform: uppercase;
 }
 
+//------Ribbon-----
+.ribbon {
+  color: $delta_color;
+  background-color: $bravo_primary;
+  font-size: 0.8em;
+  text-align: center;
+  width: 6em;
+  letter-spacing: 0.1em;
+  position: absolute;
+  left: -1.6em;
+  top: 0.6em;
+  -webkit-transform: rotate(-45deg);
+     -moz-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+       -o-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+
 //-----Sub-Headers-----
 .list_header {
   border-bottom: 1px solid $golf_color_charlie;
