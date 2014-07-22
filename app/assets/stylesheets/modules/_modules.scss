@@ -40,14 +40,12 @@
 //-----Sub-Headers-----
 .list_header {
   border-bottom: 1px solid $golf_color_charlie;
-  height: 3em;
-  padding: 0 1em;
+  padding: 0 1em 0.5em 1em;
 }
 
 .list_selected_job {
   @extend .list_header;
-  height: 4.5em;
-  padding: 1em 1em 0em 1em;
+  padding: 1em 1em 1em 1em;
   & h2 {
     color: $alpha_color;
   }
