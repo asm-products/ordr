@@ -18,21 +18,35 @@
   text-transform: uppercase;
 }
 
+//------Ribbon-----
+.ribbon {
+  color: $delta_color;
+  background-color: $bravo_primary;
+  font-size: 0.8em;
+  text-align: center;
+  width: 6em;
+  letter-spacing: 0.1em;
+  position: absolute;
+  left: -1.6em;
+  top: 0.6em;
+  -webkit-transform: rotate(-45deg);
+     -moz-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+       -o-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+
 //-----Sub-Headers-----
 .list_header {
   border-bottom: 1px solid $golf_color_charlie;
-  height: 3em;
-  padding: 0 1em;
+  padding: 0 1em 0.5em 1em;
 }
 
 .list_selected_job {
   @extend .list_header;
-  height: 4.5em;
-  padding: 1em 1em 0em 1em;
-  & h2 {
-    color: $alpha_color;
-  }
-  & h3 {
+  padding: 1em 1em 1em 1em;
+  & h2, & h3 {
     color: $alpha_color;
   }
 }
@@ -40,6 +54,7 @@
 .content_header {
   @extend .list_header;
   background-color: $delta_color;
+  padding-bottom: 0.2em;
 }
 
 

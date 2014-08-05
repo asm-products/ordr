@@ -5,8 +5,8 @@ class Interview
   field :date, type: DateTime
   field :thank_you, type: Mongoid::Boolean
 
-  has_many :contacts, dependent: :delete
-  has_many :notes, dependent: :delete
+  has_many :contacts
+  has_many :notes
 
   embedded_in :job
 end

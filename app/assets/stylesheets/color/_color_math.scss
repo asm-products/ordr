@@ -1,11 +1,11 @@
 
 // red
-$alpha_color:$alpha_primary;
+$alpha_color: $alpha_primary;
 $alpha_color_bravo: lighten( $alpha_color, 10% );
 $alpha_color_charlie: darken( $alpha_color, 10% );
 
 // turquoise
-$bravo_color:$bravo_primary;
+$bravo_color: $bravo_primary;
 $bravo_color_bravo: lighten( $bravo_color, 10% );
 $bravo_color_charlie: darken( $bravo_color, 10% );
 
@@ -15,22 +15,22 @@ $charlie_color_bravo: lighten( $charlie_color, 10% );
 $charlie_color_charlie: darken( $charlie_color, 10% );
 
 // white
-$delta_color:$delta_primary;
+$delta_color: $delta_primary;
 $delta_color_bravo: lighten( $delta_color, 10% );
 $delta_color_charlie: darken( $delta_color, 10% );
 
 // dark-gray
-$echo_color:$echo_primary;
+$echo_color: $echo_primary;
 $echo_color_bravo: lighten( $echo_color, 10% );
 $echo_color_charlie: darken( $echo_color, 10% );
 $echo_color_delta: lighten( $echo_color, 30% );
 
 // navy
-$foxtrot_color:$foxtrot_primary;
+$foxtrot_color: $foxtrot_primary;
 $foxtrot_color_bravo: lighten( $foxtrot_color, 10% );
 $foxtrot_color_charlie: darken( $foxtrot_color, 10% );
 
 // light-gray
-$golf_color:$golf_primary;
+$golf_color: $golf_primary;
 $golf_color_bravo: lighten( $golf_color, 10% );
 $golf_color_charlie: darken( $golf_color, 10% );

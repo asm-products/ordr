@@ -5,7 +5,7 @@ class JobApplication
   field :sent, type: Mongoid::Boolean
   field :date, type: DateTime
 
-  has_many :contacts, dependent: :delete
-  has_many :notes, dependent: :delete
+  has_many :contacts
+  has_many :notes
   embedded_in :job
 end
