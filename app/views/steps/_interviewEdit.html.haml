@@ -21,12 +21,16 @@
       = g.fields_for @job.interview do |f|
         = f.radio_button :type, 'phone'
         = f.label :type_phone, "Phone Interview"
+        %br
         = f.radio_button :type, 'video'
         = f.label :type_video, "Video Interview"
+        %br
         = f.radio_button :type, 'person'
         = f.label :type_person, "In-Person Interview"
+        %br
         = f.radio_button :type, 'other'
         = f.label :type_other, "Other"
+        %br
         = f.label :date
         = f.date_field :date
       = g.submit "Save", {class: 'primary_button'}
