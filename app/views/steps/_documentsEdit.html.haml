@@ -16,7 +16,9 @@
         = image_tag "add_contact_icon.svg", size: "20"
 
 %section.step_content
-  %h2 Are all your documents complete / on hand?
+  %h2 Document Checklist
+  %br
+  %br
 
   = form_for @job do |g|
     = g.fields_for @job.resume do |f|

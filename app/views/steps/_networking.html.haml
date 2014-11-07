@@ -17,11 +17,16 @@
 
 %section.step_content
   %label Did / do you plan to discuss this position with someone?
-  %p
-    / = @job.network.value
+
+  - if @job.network.plans == true
+    %p
+      Yes
+  - else
+    %p
+      No
+
   - unless @job.network.plans == false
-    %label When will / did you talk to them?
+    %label Meeting Date
     %p
       = @job.network.date
-  - else
-    %label Schedule a meeting
+

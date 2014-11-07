@@ -29,6 +29,7 @@ class JobsController < ApplicationController
 
   def update
     if @job.update(job_params)
+      #FIXME update success should render step
       render 'jobs/content_view', notice: 'Job was successfully updated.', locals: {step: params[:step]}
     else
       render :edit
@@ -36,6 +37,7 @@ class JobsController < ApplicationController
   end
 
   def destroy
+    #TODO notice should not report destroyed if archived
     @job.destroy
     redirect_to jobs_url, notice: 'Job was successfully destroyed.'
   end
@@ -68,6 +70,7 @@ class JobsController < ApplicationController
   end
 
   def deleted_index
+    #TODO clicking on job list items crashes app
     @jobs = Job.deleted.where(user: current_user).to_a
     render "jobs/index"
   end

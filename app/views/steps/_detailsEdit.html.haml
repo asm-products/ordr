@@ -17,14 +17,14 @@
 
 %section.step_content
   = form_for @job do |f|
-    = f.label :title
+    = f.label :title, 'Job Title'
     = f.text_field :title
     = f.label :url
     = f.text_field :url
-    = f.label :due_date
+    = f.label :company_name
+    = f.text_field :company_name
+    = f.label :due_date, 'Apply By'
     = f.date_field :due_date
-    = f.radio_button(:type, 'Person')
-    = f.label :type_person, 'In Person'
-    = f.radio_button(:type, 'Online')
-    = f.label :type_online, 'Online'
+    = f.label :type, 'How did you find this job?'
+    = f.text_field :type
     = f.submit 'Save', { class: 'primary_button' }

@@ -18,12 +18,12 @@
 %section.step_content
   = form_for @job do |g|
     = g.fields_for @job.research do |f|
-      = f.label :company_mission
+      = f.label :company_mission, "Company's mission/vision/values"
       = f.text_area :company_mission
 
-      = f.label :company_goals
+      = f.label :company_goals, "Company's Strategic Goals"
       = f.text_area :company_goals
 
-      = f.label :current_projects
+      = f.label :current_projects, "Favorite Company Prouct/Project/Service"
       = f.text_area :current_projects
     = g.submit 'Save', {class: 'primary_button'}
