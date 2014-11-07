@@ -9,6 +9,7 @@ feature "Mock Linkedin Authentication" do
     OmniAuth.config.add_mock(:linkedin,{uid: '12345',info: { name: 'linkedin_user'},})
   end
   scenario "sign in with Linkedin" do
+    #FIXME test passes, but omniauth currently not working
     visit root_path
     click_link "Sign in with linkedin"
     page.text.must_include I18n.t('session.messages.new_user.omniauth', user: 'linkedin_user', provider: 'linkedin')
