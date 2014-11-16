@@ -1,3 +1,4 @@
+[ ![Codeship Status for enilsen16/Ordr](https://codeship.com/projects/d8d52720-4f63-0132-20fa-12c8946411a5/status)](https://codeship.com/projects/47885)
 [![Stories in Ready](https://badge.waffle.io/enilsen16/ordr.png?label=ready&title=Ready)](http://waffle.io/enilsen16/ordr)
 
 # Ordr
