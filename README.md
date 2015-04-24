@@ -12,7 +12,7 @@ Interested in contributing on this project. Take a look at Ordr on assembly and 
 
 ### Setup Instructions
 
-Setup instructions can be found [here](./setup.md)
+Setup instructions can be found [here](./Setup.md)
 
 ### How Assembly Works
 
